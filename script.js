@@ -25,6 +25,19 @@ function updateFormSteps() {
   });
 
   formSteps[formStepsNum].classList.add("form-step-active");
+  let inancor=formSteps[formStepsNum].querySelectorAll('a');
+  // console.log(inancor[1].classList)
+  // inancor[0].classList.remove("disable-ancor")
+  // inancor[1].classList.remove("disable-ancor")
+  inancor.forEach((a)=>{
+    a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
+  })
+
+  // inancor[0].style.pointerEvents="auto";
+  // inancor[0].style.cursor="default";
+  // inancor[1].style.pointerEvents="auto";
+  // inancor[1].style.cursor="default";
+
 }
 function jumpForm(stepNumber)
 {
@@ -70,4 +83,7 @@ function validatePassword(){
     passwordRequired.style.color="red";
     return false;
   }
+  errormessage.innerText=""
+  passwordRequired.style.color="black";
+  return true;
 }
