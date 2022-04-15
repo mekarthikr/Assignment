@@ -22,9 +22,18 @@ body{
   /* .form-header{
     background-color: violet;
   } */
-  input{
-    width:400px;
+  .form-input{
+    width:350px;
     border-radius: 5px;
     border: 1px solid rgb(61, 61, 61);
     height: 35px;
   }
+  .form-select{
+    width: 200px;
+    border-radius: 5px;
+    border: 1px black solid;
+    text-align: center;
+  }
+  /* input[type=text]{
+
+  } */
