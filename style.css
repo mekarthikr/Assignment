@@ -1,0 +1,30 @@
+body{
+    padding-top: 100px;
+  }
+  label {
+    display: block;
+  }
+  
+  input {
+    display: block;
+  }
+  
+  .form-step {
+    display: none;
+  }
+  
+  .form-step-active {
+    display: block;
+    padding: 10px 50px 10px 50px;
+    background-color: rgb(234, 234, 234);
+    border-radius: 5px;
+  }
+  /* .form-header{
+    background-color: violet;
+  } */
+  input{
+    width:400px;
+    border-radius: 5px;
+    border: 1px solid rgb(61, 61, 61);
+    height: 35px;
+  }
