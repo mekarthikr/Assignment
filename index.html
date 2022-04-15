@@ -14,7 +14,7 @@
       <h1 class="card-header form-header text-center">
         Employee Registration Form
       </h1>
-      <div class="card-body">
+      <div class="card-body main-body">
         <div class="container">
           <a class="btn" onclick="jumpForm(1)">Basic</a>
           <a class="btn" onclick="jumpForm(2)">Other</a>
@@ -66,7 +66,7 @@
             </div>
           </div>
           <!-- Other -->
-          <div class="form-step form-step-active">
+          <div class="form-step">
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -89,12 +89,11 @@
                   </div>
                 </div>
             </div>
-
             </div>
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="states">States</label>
+                  <label for="states">State</label>
                   <select class="form-select" name="states" id="stater">
                     <option value="Kerala">Kerala</option>
                     <option value="Kerala">Kerala</option>
@@ -105,6 +104,16 @@
                   </select>
                 </div>
               </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <textarea name="address" id="address" cols="30" rows="4"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <a class="btn btn-prev width-50 ml-auto">Previous</a>
+              <a class="btn btn-next width-50 ml-auto">Next</a>
             </div>
           </div>
           <!-- <div class="form-step">
