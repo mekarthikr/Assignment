@@ -28,22 +28,25 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="email">Email ID</label>
-                  <input class="form-input" type="text" name="email" id="email" />
+                  <label for="email">Email ID <span class="required" id="emailRequired">*</span> </label>
+                  <input onblur="validateEmail()" class="form-input" type="text" name="email" id="email" />
+                  <p class="error-message" id="emailError"></p>
                 </div>
               </div>            
             </div>
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="password">Password</label>
-                  <input class="form-input" type="password" name="password" id="password">
+                  <label for="password">Password <span class="required" id="passwordRequired" >*</span></label>
+                  <input onblur="validatePassword()" class="form-input" type="password" name="password" id="password">
+                  <p class="error-message" id="passwordError"></p>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
-                  <label for="confirmPassword">Confirm Password</label>
+                  <label for="confirmPassword">Confirm Password <span class="required" id="passwordConfirmRequired">*</span> </label>
                   <input class="form-input" type="password" name="confirm password" id="confirmPassword">
+                  <p class="error-message" id="passwordConfirmError"></p>
                 </div>
               </div>
             </div>
@@ -95,9 +98,9 @@
                 <div class="form-group">
                   <label for="states">State</label>
                   <select class="form-select" name="states" id="stater">
+                    <option value="Kerala">Tamil Nadu</option>
                     <option value="Kerala">Kerala</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Kerala">Kerala</option>
+                    <option value="Kerala">Karnataka</option>
                     <option value="Kerala">Kerala</option>
                     <option value="Kerala">Kerala</option>
                     <option value="Kerala">Kerala</option>
@@ -111,9 +114,28 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="mobilenumber">Mobile Number</label>
+                  <input class="form-input" type="text" inputmode="numeric" name="mobilenumber" id="mobilenumber">
+                </div>
+              </div>
+            </div>
             <div class="">
               <a class="btn btn-prev width-50 ml-auto">Previous</a>
               <a class="btn btn-next width-50 ml-auto">Next</a>
+            </div>
+          </div>
+          <!-- WORK -->
+          <div class="form-step">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label class="form-check-label" for="occupation">Occupation</label>
+                  <input class="form-check-input" type="radio" name="occupation" id="occupation">
+                </div>
+              </div>
             </div>
           </div>
           <!-- <div class="form-step">
@@ -159,7 +181,7 @@
             </div>
             <div class="btns-group">
               <a class="btn btn-prev">Previous</a>
-              <input type="submit" value="Submit" class="btn" />
+              <!-- <input type="submit" value="Submit" class="btn" /> -->
             </div>
           </div>
         </div>

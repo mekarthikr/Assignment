@@ -38,3 +38,36 @@ function jumpForm(stepNumber)
   formSteps[formStepsNum].classList.add("form-step-active");
 
 }
+function validateEmail(){
+  let email=document.getElementById("email").value;
+  let errormessage=document.getElementById("emailError");
+  let emailRequired=document.getElementById("emailRequired");
+  let testREgex='[a-z0-9]+@[a-z]+\.[a-z]{2,3}';
+  if(email.match(" ")||email.match(" "))
+  {
+    errormessage.innerText="Enter Proper Mail ID"
+    emailRequired.style.color="red";
+    return false;
+  }
+  else if(!(email.match(testREgex)))
+  {
+    errormessage.innerText="Enter valid Mail ID"
+    emailRequired.style.color="red";
+    return false;
+  }
+  errormessage.innerText=""
+  emailRequired.style.color="black";
+  return true;
+}
+function validatePassword(){
+  let password=document.getElementById("password").value;
+  let errormessage=document.getElementById("passwordError");
+  let passwordRequired=document.getElementById("passwordRequired");
+  let testregex = '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$'
+  if(!(password.match(testregex)))
+  {
+    errormessage.innerText="Enter a valid Password"
+    passwordRequired.style.color="red";
+    return false;
+  }
+}
