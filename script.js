@@ -11,8 +11,8 @@ nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     console.log(formStepsNum+"click")
     console.log(formStepsNum)
-    formStepsNum++;
-    updateFormSteps();
+    // formStepsNum++;
+    // updateFormSteps();
 
   });
 });
@@ -126,24 +126,42 @@ function validateFirstName(){
   firstNameId.style.border="black 1px solid"
   return false;
 }
-function clickForm(){
+function clickBasicForm(){
   // let firstName=document.getElementById("firstName").value
   // let password=document.getElementById("password").value;
   // let confirmPassword=document.getElementById("confirmPassword").value;
   // let email=document.getElementById("email").value;
   // if((email&&password&&confirmPassword&&firstName)!="")
   // {
+    // formStepsNum++;
     formStepsNum++;
     updateFormSteps();
-    let inancor=formSteps[formStepsNum].querySelectorAll('a');
-    inancor.forEach((a)=>{
-      a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
-    })
+  //   let inancor=formSteps[formStepsNum].querySelectorAll('a');
+  //   inancor.forEach((a)=>{
+  //     a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
+  //   })
   // }
   // else
   // {
+  //  let event=document.getElementById 
   //   // console.log("fill")
   //   alert("fill the form")
   // }
   
+}
+function clickOtherForm(){
+  formStepsNum++;
+  updateFormSteps();
+}
+function clickWorkForm(){
+  formStepsNum++;
+  updateFormSteps();
+}
+function clickEducationForm(){
+  formStepsNum++;
+  updateFormSteps();
+}
+function clickTeamForm(){
+  formStepsNum++;
+  updateFormSteps();
 }
