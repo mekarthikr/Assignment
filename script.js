@@ -1,15 +1,20 @@
 const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
 const formSteps = document.querySelectorAll(".form-step");
+const mainContainer = document.querySelectorAll(".container")
 
 let formStepsNum = 0;
 
-// nextBtns.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     formStepsNum++;
-//     updateFormSteps();
-//   });
-// });
+nextBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    
+    console.log(formStepsNum)
+    updateFormSteps();
+    formStepsNum++;
+  });
+});
+let mainancor=mainContainer[0].querySelectorAll('a');
+console.log(mainancor)
 
 prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -19,13 +24,16 @@ prevBtns.forEach((btn) => {
 });
 
 function updateFormSteps() {
+  console.log(formStepsNum+"inside")
   formSteps.forEach((formStep) => {
     formStep.classList.contains("form-step-active") &&
       formStep.classList.remove("form-step-active");
   });
-
+  console.log(formStepsNum)
   formSteps[formStepsNum].classList.add("form-step-active");
   let inancor=formSteps[formStepsNum].querySelectorAll('a');
+  console.log(mainancor[formStepsNum].classList)
+  mainancor[formStepsNum].classList.remove("disable-ancor")
   inancor.forEach((a)=>{
     a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
   })
@@ -114,23 +122,23 @@ function validateFirstName(){
   return false;
 }
 function clickForm(){
-  let firstName=document.getElementById("firstName").value
-  let password=document.getElementById("password").value;
-  let confirmPassword=document.getElementById("confirmPassword").value;
-  let email=document.getElementById("email").value;
-  if((email&&password&&confirmPassword&&firstName)!="")
-  {
+  // let firstName=document.getElementById("firstName").value
+  // let password=document.getElementById("password").value;
+  // let confirmPassword=document.getElementById("confirmPassword").value;
+  // let email=document.getElementById("email").value;
+  // if((email&&password&&confirmPassword&&firstName)!="")
+  // {
     formStepsNum++;
     updateFormSteps();
     let inancor=formSteps[formStepsNum].querySelectorAll('a');
     inancor.forEach((a)=>{
       a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
     })
-  }
-  else
-  {
-    // console.log("fill")
-    alert("fill the form")
-  }
+  // }
+  // else
+  // {
+  //   // console.log("fill")
+  //   alert("fill the form")
+  // }
   
 }
