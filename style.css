@@ -44,7 +44,7 @@ body{
     width:100px;
   }
   .btn{
-    border: 1px black solid;
+    /* border: 1px black solid; */
   }
   .error-message{
     color: red;
@@ -58,6 +58,16 @@ body{
   .disable-ancor{
     pointer-events: none;
     cursor: default;
+  }
+  .btn-right{
+    float: right;
+  }
+  .btn-left{
+    float: left;
+  }
+  .nav-btn{
+    /* margin:10px; */
+    width: 100px;
   }
   /* .btn-group{
     position: relative;

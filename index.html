@@ -16,14 +16,16 @@
       </h1>
       <div class="card-body main-body">
         <div class="container">
-          <a class="btn " onclick="jumpForm(1)">Basic</a>
-          <a class="btn disable-ancor" onclick="jumpForm(2)">Other</a>
-          <a class="btn disable-ancor" onclick="jumpForm(3)">Work</a>
-          <a class="btn disable-ancor" onclick="jumpForm(4)">Education</a>
-          <a class="btn disable-ancor" onclick="jumpForm(5)">Team</a>       
+          <div style="margin: auto;width: 50%;">
+            <a class="btn nav-btn " onclick="jumpForm(1)">Basic</a>
+            <a class="btn nav-btn disable-ancor" onclick="jumpForm(2)">Other</a>
+            <a class="btn nav-btn disable-ancor" onclick="jumpForm(3)">Work</a>
+            <a class="btn nav-btn disable-ancor" onclick="jumpForm(4)">Education</a>
+            <a class="btn nav-btn disable-ancor" onclick="jumpForm(5)">Team</a> 
+          </div>
         <form action="#" class="form">
           <!-- BASIC -->
-          <div style="border: 1px solid black;" class="form-step form-step-active">
+          <div class="form-step form-step-active">
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -66,7 +68,7 @@
             </div>            
             <div class="row">
               <div class="col">
-                <a style="float: right;" onclick="clickBasicForm()" class="btn btn-next btn-position-right width-50 ml-auto">Next</a>
+                <a onclick="clickBasicForm()" class="btn btn-right btn-next btn-position-right width-50 ml-auto">Next</a>
               </div>
             </div>
           </div>
@@ -121,9 +123,11 @@
                 </div>
               </div>
             </div>
-            <div class="">
-              <a class="btn btn-prev disable-ancor btn-position-left width-50 ml-auto">Previous</a>
-              <a onclick="clickOtherForm()" class="btn btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+            <div class="row">
+              <div class="col">
+                <a class="btn btn-left btn-prev disable-ancor btn-position-left width-50 ml-auto">Previous</a>
+                <a onclick="clickOtherForm()" class="btn btn-right btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+              </div>
             </div>
           </div>
           <!-- WORK -->
@@ -144,9 +148,11 @@
                 </div>
               </div>
             </div>
-            <div class="">
-              <a class="btn btn-prev disable-ancor width-50 ml-auto">Previous</a>
-              <a onclick="clickWorkForm()" class="btn btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+            <div class="row">
+              <div class="col">
+                <a class="btn btn-left btn-prev disable-ancor width-50 ml-auto">Previous</a>
+                <a onclick="clickWorkForm()" class="btn btn-right btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+              </div>
             </div>
           </div>
           <!-- EDUCATION -->
@@ -171,9 +177,11 @@
                 </div>
               </div>
             </div>
-            <div class="">
-              <a class="btn btn-prev disable-ancor width-50 ml-auto">Previous</a>
-              <a onclick="clickEducationForm()" class="btn btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+            <div class="row">
+              <div class="col">
+                <a class="btn btn-left btn-prev disable-ancor width-50 ml-auto">Previous</a>
+                <a onclick="clickEducationForm()" class="btn btn-right btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+              </div>
             </div>
           </div>
           <!-- TEAM -->
@@ -196,9 +204,11 @@
                 <label for="terms" class="form-check-label">Agree to Terms & Conditions</label>
               </div>
             </div>
-            <div class="">
-              <a class="btn btn-prev disable-ancor width-50 ml-auto">Previous</a>
-              <a onclick="clickTeamForm()" class="btn btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+            <div class="row">
+              <div class="col">
+                <a class="btn btn-left btn-prev disable-ancor width-50 ml-auto">Previous</a>
+                <a onclick="clickTeamForm()" class="btn btn-right btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+              </div>
             </div>
           </div>
           </form>
