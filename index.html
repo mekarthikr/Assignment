@@ -45,7 +45,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="confirmPassword">Confirm Password <span class="required" id="passwordConfirmRequired">*</span> </label>
-                  <input class="form-input" type="password" name="confirm password" id="confirmPassword">
+                  <input onblur="confirmpassword()" class="form-input" type="password" name="confirm password" id="confirmPassword">
                   <p class="error-message" id="passwordConfirmError"></p>
                 </div>
               </div>
@@ -53,8 +53,9 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="firstName">First Name</label>
-                  <input class="form-input" type="text" name="First Name" id="firstName">
+                  <label for="firstName">First Name <span class="required" id="firstNameRequired">*</span></label>
+                  <input onblur="validateFirstName()" class="form-input" type="text" name="First Name" id="firstName">
+                  <p class="error-message" id="firstNameError"></p>
                 </div>
               </div>
               <div class="col">
@@ -65,7 +66,7 @@
               </div>
             </div>            
             <div class="">
-              <a class="btn btn-next width-50 ml-auto">Next</a>
+              <a onclick="clickForm()" class="btn btn-next width-50 ml-auto">Next</a>
             </div>
           </div>
           <!-- Other -->
@@ -97,7 +98,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="states">State</label>
-                  <select class="form-select" name="states" id="stater">
+                  <select class="form-select" name="states" id="states">
                     <option value="Kerala">Tamil Nadu</option>
                     <option value="Kerala">Kerala</option>
                     <option value="Kerala">Karnataka</option>
@@ -129,9 +130,63 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label class="form-check-label" for="occupation">Occupation</label>
-                  <input class="form-check-input" type="radio" name="occupation" id="occupation">
+                  <!-- <label class="form-check-label" for="occupation">Occupation</label>
+                  <input class="form-check-input" type="radio" name="occupation" id="occupation"> -->
+                  <label for="occupation">Occupation</label>
+                  <input type="text" name="Occupation" id="occupation" class="form-input">
                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="experience">Over All Years of Experience</label>
+                  <input type="text" name="OYE" id="experience" class="form-input">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- EDUCATION -->
+          <div class="form-step">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="graduation">Graduation</label>
+                  <select class="form-select" name="Graduation" id="graduation">
+                    <option value="SSLC">SSLC</option>
+                    <option value="HSC">HSC</option>
+                    <option value="BE">BE</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="passingout">Year of Passing</label>
+                  <input type="text" name="passingout" id="passingout" class="form-input">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- TEAM -->
+          <div class="form-step">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="practice">Department/Practice</label>
+                  <select class="form-select" name="Practice" id="practice">
+                    <option value="LAMP">LAMP</option>
+                    <option value=".NET">.NET</option>
+                    <option value="Oracle">ORACLE</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input type="checkbox" name="TandC" id="terms" class="form-check-input">
+                <label for="terms" class="form-check-label">Agree to Terms & Conditions</label>
               </div>
             </div>
           </div>

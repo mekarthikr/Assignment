@@ -4,12 +4,12 @@ const formSteps = document.querySelectorAll(".form-step");
 
 let formStepsNum = 0;
 
-nextBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    formStepsNum++;
-    updateFormSteps();
-  });
-});
+// nextBtns.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     formStepsNum++;
+//     updateFormSteps();
+//   });
+// });
 
 prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -26,18 +26,9 @@ function updateFormSteps() {
 
   formSteps[formStepsNum].classList.add("form-step-active");
   let inancor=formSteps[formStepsNum].querySelectorAll('a');
-  // console.log(inancor[1].classList)
-  // inancor[0].classList.remove("disable-ancor")
-  // inancor[1].classList.remove("disable-ancor")
   inancor.forEach((a)=>{
     a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
   })
-
-  // inancor[0].style.pointerEvents="auto";
-  // inancor[0].style.cursor="default";
-  // inancor[1].style.pointerEvents="auto";
-  // inancor[1].style.cursor="default";
-
 }
 function jumpForm(stepNumber)
 {
@@ -52,6 +43,7 @@ function jumpForm(stepNumber)
 
 }
 function validateEmail(){
+  let emailid=document.getElementById("email")
   let email=document.getElementById("email").value;
   let errormessage=document.getElementById("emailError");
   let emailRequired=document.getElementById("emailRequired");
@@ -60,30 +52,85 @@ function validateEmail(){
   {
     errormessage.innerText="Enter Proper Mail ID"
     emailRequired.style.color="red";
+    emailid.style.border="1px solid red"
     return false;
   }
   else if(!(email.match(testREgex)))
   {
     errormessage.innerText="Enter valid Mail ID"
     emailRequired.style.color="red";
+    emailid.style.border="1px solid red"
     return false;
   }
   errormessage.innerText=""
   emailRequired.style.color="black";
+  emailid.style.border="1px solid black"
   return true;
 }
 function validatePassword(){
+  let passwordid=document.getElementById("password")
   let password=document.getElementById("password").value;
   let errormessage=document.getElementById("passwordError");
   let passwordRequired=document.getElementById("passwordRequired");
-  let testregex = '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$'
+  let testregex = /^[A-Za-z]\w{7,14}$/
+  // /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/
+  console.log(password)
   if(!(password.match(testregex)))
   {
     errormessage.innerText="Enter a valid Password"
     passwordRequired.style.color="red";
+    passwordid.style.border="red 1px solid"
     return false;
   }
   errormessage.innerText=""
   passwordRequired.style.color="black";
+  passwordid.style.border="black 1px solid"
   return true;
+}
+function confirmpassword(){
+  let password=document.getElementById("password").value;
+  let confirmPassword=document.getElementById("confirmPassword").value;
+  if(password!=confirmPassword)
+  {
+    console.log("enter correct password")
+  }
+}
+function validateFirstName(){
+  let firstName=document.getElementById("firstName").value
+  let firstNameId=document.getElementById("firstName")
+  let errormessage=document.getElementById("firstNameError")
+  let nameRequired=document.getElementById("firstNameRequired")
+  let testregex = /^[A-Za-z]\w{7,14}$/
+  if(!(firstName.match(testregex)))
+  {
+    errormessage.innerText="Enter a valid Name"
+    nameRequired.style.color="red";
+    firstNameId.style.border="red 1px solid"
+    return false;
+  }
+  errormessage.innerText=""
+  nameRequired.style.color="black";
+  firstNameId.style.border="black 1px solid"
+  return false;
+}
+function clickForm(){
+  let firstName=document.getElementById("firstName").value
+  let password=document.getElementById("password").value;
+  let confirmPassword=document.getElementById("confirmPassword").value;
+  let email=document.getElementById("email").value;
+  if((email&&password&&confirmPassword&&firstName)!="")
+  {
+    formStepsNum++;
+    updateFormSteps();
+    let inancor=formSteps[formStepsNum].querySelectorAll('a');
+    inancor.forEach((a)=>{
+      a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
+    })
+  }
+  else
+  {
+    // console.log("fill")
+    alert("fill the form")
+  }
+  
 }

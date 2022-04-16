@@ -43,19 +43,22 @@ body{
   .width-50{
     width:100px;
   }
-  .btn{
-    /* border: 1px black solid; */
-  }
+  /* .btn{
+    border: 1px black solid;
+  } */
   .error-message{
     color: red;
   }
   .required{
     color: black;
   }
-  /* .disable-ancor{
+  .form-group{
+    margin-bottom: 50px;
+  }
+  .disable-ancor{
     pointer-events: none;
     cursor: default;
-  } */
+  }
   /* input[type=text]{
 
   } */
