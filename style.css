@@ -59,6 +59,9 @@ body{
     pointer-events: none;
     cursor: default;
   }
+  /* .form-step{
+    height: 500px;
+  } */
   /* input[type=text]{
 
   } */

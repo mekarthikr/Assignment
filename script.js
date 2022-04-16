@@ -2,26 +2,31 @@ const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
 const formSteps = document.querySelectorAll(".form-step");
 const mainContainer = document.querySelectorAll(".container")
-
+const mainancor=mainContainer[0].querySelectorAll('a');
 let formStepsNum = 0;
+console.log(formStepsNum)
 
 nextBtns.forEach((btn) => {
+  console.log(formStepsNum)
   btn.addEventListener("click", () => {
-    
+    console.log(formStepsNum+"click")
     console.log(formStepsNum)
-    updateFormSteps();
     formStepsNum++;
+    updateFormSteps();
+
   });
 });
-let mainancor=mainContainer[0].querySelectorAll('a');
-console.log(mainancor)
+
+// console.log(mainancor)
 
 prevBtns.forEach((btn) => {
+  // console.log(formStepsNum)
   btn.addEventListener("click", () => {
     formStepsNum--;
     updateFormSteps();
   });
 });
+
 
 function updateFormSteps() {
   console.log(formStepsNum+"inside")
@@ -29,7 +34,7 @@ function updateFormSteps() {
     formStep.classList.contains("form-step-active") &&
       formStep.classList.remove("form-step-active");
   });
-  console.log(formStepsNum)
+  // console.log(formStepsNum)
   formSteps[formStepsNum].classList.add("form-step-active");
   let inancor=formSteps[formStepsNum].querySelectorAll('a');
   console.log(mainancor[formStepsNum].classList)
