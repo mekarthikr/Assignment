@@ -52,10 +52,10 @@ body{
   .required{
     color: black;
   }
-  .disable-ancor{
+  /* .disable-ancor{
     pointer-events: none;
     cursor: default;
-  }
+  } */
   /* input[type=text]{
 
   } */
