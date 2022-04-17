@@ -79,8 +79,16 @@ function jumpForm(stepNumber)
   updateFormSteps()
 }
 function clickBasicForm(){
+  console.log("basic cicked")
+  if(validateEmail()&&validateFirstName()&&validatePassword()&&validatePasswordConfirm()==true)
+  {
     formStepsNum++;
     updateFormSteps(); 
+  }
+  else
+  {
+    console
+  }
 }
 function clickOtherForm(){
   formStepsNum++;
@@ -126,30 +134,37 @@ function validateEmail()
   if(formEmail=="")
   {
     emailError("Email ID Required")
+    return false;
   }
   else if(validate.emailDomainRegex.test(formEmail.substring((0,formEmail.indexOf("@"))+1))==false)
   {
     emailError("Enter a valid mail ID")
+    return false;
   }
   else if(validate.emailDomainRegex.test(formEmail.substring((formEmail.indexOf("@"))+1,formEmail.length))==false)
   {
     emailError("Enter a valid Domain")
+    return false;
   }
   else{
     emailCorrect();
+    return true;
   }
 }
 
 function validatePassword()
 {
   let formPassword=document.getElementById("password").value;
+  console.log(formPassword)
   validate.user.password=formPassword;
   if(formPassword=="")
   {
     passwordError("Password is Required");
+    return false;
   }
   else{
     passwordCorrect();
+    return true;
   }
 }
 
@@ -157,20 +172,25 @@ function validatePasswordConfirm()
 {
   let formPassword=document.getElementById("password").value;
   let formConfirmPassword=document.getElementById("confirmPassword").value;
+  console.log(formConfirmPassword)
   validate.user.confirmPassword=formConfirmPassword;
   if(formPassword=="")
   {
     passwordError("Password is Required")
+    return false;
   }
   else if(formConfirmPassword=="")
   {
     passwordConfirmationError("Password Confirmation is Required");
+    return false;
   }
-  else if(formPassword==formConfirmPassword){
+  else if(formPassword!=formConfirmPassword){
     passwordConfirmationError("Password doesnt matches");
+    return false;
   }
   else{
     passwordConfirmationCorrect();
+    return true;
   }
 }
 
@@ -181,16 +201,20 @@ function validateFirstName()
   if(formFirstName=="")
   {
     firstNameError("First Name is Required")
+    return false;
   }
   else if(validate.alphaRegex.test(formFirstName)==false){
     firstNameError("Enter a valid Name")
+    return false;
   }
   else if(3>formFirstName.length||formFirstName.length>15)
   {
     firstNameError("Name should be between 3 - 15")
+    return false;
   }
   else{
     firstNameCorrect();
+    return true;
   }
 }
 
@@ -200,13 +224,16 @@ function validateLastName()
   validate.user.firstName=formFirstName;
   if(validate.alphaRegex.test(formFirstName)==false){
     lastNameError("Enter a valid Name")
+    return false;
   }
   else if(3>formFirstName.length||formFirstName.length>15)
   {
     lastNameError("Name should be between 3 - 15")
+    return false;
   }
   else{
     lastNameCorrect();
+    return true;
   }
 }
 
@@ -238,9 +265,11 @@ function validateGender()
   if(document.getElementById("Male").checked==false&&document.getElementById("Female").checked==false&&document.getElementById("Others").checked==false)
   {
     genderError("Select a option");
+    return false;
   }
   else{
     genderCorrect();
+    return true;
   }
 }
 
@@ -250,9 +279,11 @@ function validateState()
   if(formState.options[formState.selectedIndex].value=="Choose State")
   {
     stateError("Select a State");
+    return false;
   }
   else{
     stateCorrect();
+    return true;
   }
 }
 
@@ -262,14 +293,17 @@ function validateMobileNumber()
   if(formMobileNumber=="")
   {
     mobileNumberError("Mobile Number Required")
+    return false;
   }
   else if(validate.numberRegex.test(formMobileNumber)==false)
   {
     mobileNumberError("Mobile Number start with 6/7/8/9 and should contain 10 digits")
+    return false;
   }
   else
   {
     mobileNumberCorrect();
+    return true;
   }
 }
 function validateGraduation()
@@ -278,9 +312,11 @@ function validateGraduation()
   if(formGraduation.options[formGraduation.selectedIndex].value=="Choose a graduation")
   {
     graduationError("Select a Graduation");
+    return false;
   }
   else{
     graduationCorrect();
+    return true;
   }
 }
 
@@ -290,10 +326,12 @@ function validatePractice()
   if(formPractice.options[formPractice.selectedIndex].value=="Choose practice")
   {
     practiceError("Select a Practice");
+    return false;
   }
   else
   {
     practiceCorrect();
+    return true;
   }
 
 }
@@ -459,13 +497,21 @@ function graduationCorrect()
   let graduationRequired=document.getElementById("graduationRequired")
   graduationMessage.innerText=""
   graduationRequired.style.color="black";
+  return true;
+}
+function practiceError(errorMessage)
+{
+  let practiceMessage=document.getElementById("practiceError")
+  let practiceRequired=document.getElementById("practiceRequired")
+  practiceMessage.innerText=errorMessage
+  practiceRequired.style.color="red";
   return false;
 }
 function practiceError(errorMessage)
 {
-  let stateMessage=document.getElementById("stateError")
-  let stateRequired=document.getElementById("stateRequired")
-  stateMessage.innerText=errorMessage
-  stateRequired.style.color="red";
-  return false;
+  let practiceMessage=document.getElementById("practiceError")
+  let practiceRequired=document.getElementById("practiceRequired")
+  practiceMessage.innerText=""
+  practiceRequired.style.color="black";
+  return true;
 }

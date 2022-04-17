@@ -178,8 +178,8 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="graduation">Graduation<span class="required" id="graduationRequired">*</span></label>
-                  <select class="form-select" name="Graduation" id="graduation">
+                  <label for="graduation">Graduation <span class="required" id="graduationRequired">*</span></label>
+                  <select onchange="validateGraduation()" class="form-select" name="Graduation" id="graduation">
                     <option value="Choose a graduation">Choose a graduation</option>
                     <option value="SSLC">SSLC</option>
                     <option value="HSC">HSC</option>
@@ -192,7 +192,7 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="passingout">Year of Passing<span class="required" id="passingoutRequired">*</span></label>
+                  <label for="passingout">Year of Passing <span class="required" id="passingoutRequired">*</span></label>
                   <input type="text" name="passingout" id="passingout" class="form-input">
                   <p class="error-message" id="passingoutError"></p>
                 </div>
@@ -210,8 +210,8 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="practice">Department/Practice<span class="required" id="practiceRequired">*</span></label>
-                  <select class="form-select" name="Practice" id="practice">
+                  <label for="practice">Department/Practice <span class="required" id="practiceRequired">*</span></label>
+                  <select onchange="validatePractice()" class="form-select" name="Practice" id="practice">
                     <option value="Choose practice">Choose practice</option>
                   </select>
                   <p class="error-message" id="practiceError"></p>
