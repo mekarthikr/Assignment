@@ -59,99 +59,9 @@ function jumpForm(stepNumber)
   formStepsNum=stepNumber-1
   updateFormSteps()
 }
-// function validateEmail(){
-//   let emailid=document.getElementById("email")
-//   let email=document.getElementById("email").value;
-//   let errormessage=document.getElementById("emailError");
-//   let emailRequired=document.getElementById("emailRequired");
-//   let testREgex='[a-z0-9]+@[a-z]+\.[a-z]{2,3}';
-//   if(email.match(" ")||email.match(" "))
-//   {
-//     errormessage.innerText="Enter Proper Mail ID"
-//     emailRequired.style.color="red";
-//     emailid.style.border="1px solid red"
-//     return false;
-//   }
-//   else if(!(email.match(testREgex)))
-//   {
-//     errormessage.innerText="Enter valid Mail ID"
-//     emailRequired.style.color="red";
-//     emailid.style.border="1px solid red"
-//     return false;
-//   }
-//   errormessage.innerText=""
-//   emailRequired.style.color="black";
-//   emailid.style.border="1px solid black"
-//   return true;
-// }
-// function validatePassword(){
-//   let passwordid=document.getElementById("password")
-//   let password=document.getElementById("password").value;
-//   let errormessage=document.getElementById("passwordError");
-//   let passwordRequired=document.getElementById("passwordRequired");
-//   let testregex = /^[A-Za-z]\w{7,14}$/
-//   // /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/
-//   console.log(password)
-//   if(!(password.match(testregex)))
-//   {
-//     errormessage.innerText="Enter a valid Password"
-//     passwordRequired.style.color="red";
-//     passwordid.style.border="red 1px solid"
-//     return false;
-//   }
-//   errormessage.innerText=""
-//   passwordRequired.style.color="black";
-//   passwordid.style.border="black 1px solid"
-//   return true;
-// }
-// function confirmpassword(){
-//   let password=document.getElementById("password").value;
-//   let confirmPassword=document.getElementById("confirmPassword").value;
-//   if(password!=confirmPassword)
-//   {
-//     console.log("enter correct password")
-//   }
-// }
-// function validateFirstName(){
-//   let firstName=document.getElementById("firstName").value
-//   let firstNameId=document.getElementById("firstName")
-//   let errormessage=document.getElementById("firstNameError")
-//   let nameRequired=document.getElementById("firstNameRequired")
-//   let testregex = /^[A-Za-z]\w{7,14}$/
-//   if(!(firstName.match(testregex)))
-//   {
-//     errormessage.innerText="Enter a valid Name"
-//     nameRequired.style.color="red";
-//     firstNameId.style.border="red 1px solid"
-//     return false;
-//   }
-//   errormessage.innerText=""
-//   nameRequired.style.color="black";
-//   firstNameId.style.border="black 1px solid"
-//   return false;
-// }
 function clickBasicForm(){
-  // let firstName=document.getElementById("firstName").value
-  // let password=document.getElementById("password").value;
-  // let confirmPassword=document.getElementById("confirmPassword").value;
-  // let email=document.getElementById("email").value;
-  // if((email&&password&&confirmPassword&&firstName)!="")
-  // {
-    // formStepsNum++;
     formStepsNum++;
-    updateFormSteps();
-  //   let inancor=formSteps[formStepsNum].querySelectorAll('a');
-  //   inancor.forEach((a)=>{
-  //     a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
-  //   })
-  // }
-  // else
-  // {
-  //  let event=document.getElementById 
-  //   // console.log("fill")
-  //   alert("fill the form")
-  // }
-  
+    updateFormSteps(); 
 }
 function clickOtherForm(){
   formStepsNum++;
@@ -182,36 +92,12 @@ class Validation{
   user={
     email:"",
     firstName:"",
-    password:""
+    password:"",
+    confirmPassword:""
   }
 }
-// function validateFirstName(){
-//   let firstName=document.getElementById("firstName").value
-//   console.log(firstName)
-//   // if(this.user.firstName == ""){
-//   //     this.user.firstNameError = "Firstname required";
-//   //     this.displayBasicErrorMessage(3,this.user.firstNameError);
-//   // }
-//   // else if(this.alphaRegex.test(this.user.firstName) == false){
-//   //     this.user.firstNameError = "Should contain only alphabets";
-//   //     this.displayBasicErrorMessage(3,this.user.firstNameError);
-//   // }
-//   // else if(this.user.firstName.length < 3)
-//   // {
-//   //     this.user.firstNameError = "Should contain atleast 3 letters";
-//   //     this.displayBasicErrorMessage(3,this.user.firstNameError);
-//   // }
-//   // else if(this.user.firstName.length > 15)
-//   // {
-//   //     this.user.firstnameError = "Should not exceed 15 letters";
-//   //     this.displayBasicErrorMessage(3,this.user.firstNameError);
-//   // }
-//   // else 
-//   // {
-//   //     this.removeBasicErrorMessage(3);
-//   //     this.user.firstNameError = "";
-//   // }
-// }
+
+
 let validate = new Validation();
 function validateEmail()
 {
@@ -236,7 +122,7 @@ function validateEmail()
 
 function validatePassword()
 {
-  let formPassword=document.getElementById("password");
+  let formPassword=document.getElementById("password").value;
   validate.user.password=formPassword;
   if(formPassword=="")
   {
@@ -244,6 +130,47 @@ function validatePassword()
   }
   else{
     passwordCorrect();
+  }
+}
+
+function validatePasswordConfirm()
+{
+  let formPassword=document.getElementById("password").value;
+  let formConfirmPassword=document.getElementById("confirmPassword").value;
+  validate.user.confirmPassword=formConfirmPassword;
+  if(formPassword=="")
+  {
+    passwordError("Password is Required")
+  }
+  else if(formConfirmPassword=="")
+  {
+    passwordConfirmationError("Password Confirmation is Required");
+  }
+  else if(formPassword==formConfirmPassword){
+    passwordConfirmationError("Password doesnt matches");
+  }
+  else{
+    passwordConfirmationCorrect();
+  }
+}
+
+function validateFirstName()
+{
+  let formFirstName=document.getElementById("firstName").value;
+  validate.user.firstName=formFirstName;
+  if(formFirstName=="")
+  {
+    firstNameError("First Name is Required")
+  }
+  else if(validate.alphaRegex.test(formFirstName)==false){
+    firstNameError("Enter a valid Name")
+  }
+  else if(3>formFirstName.length||formFirstName.length>15)
+  {
+    firstNameError("Name should be between 3 - 15")
+  }
+  else{
+    firstNameCorrect();
   }
 }
 
@@ -286,5 +213,45 @@ function passwordCorrect()
   passwordRequired.style.color="black";
   passwordId.style.border="1px solid black"
   return true;
+}
+function passwordConfirmationError(errorMessage)
+{
+  let confirmPasswordId=document.getElementById("confirmPassword")
+  let passwordConfirmationMessage=document.getElementById("passwordConfirmError")
+  let passwordConfirmationRequired=document.getElementById("passwordConfirmRequired")
+  passwordConfirmationMessage.innerText=errorMessage
+  passwordConfirmationRequired.style.color="red";
+  confirmPasswordId.style.border="1px solid red"
+  return false;
+}
+function passwordConfirmationCorrect()
+{
+  let confirmPasswordId=document.getElementById("confirmPassword")
+  let passwordConfirmationMessage=document.getElementById("passwordConfirmError")
+  let passwordConfirmationRequired=document.getElementById("passwordConfirmRequired")
+  passwordConfirmationMessage.innerText=""
+  passwordConfirmationRequired.style.color="black";
+  confirmPasswordId.style.border="1px solid black"
+  return true;
+}
+function firstNameError(errorMessage)
+{
+  let firstNameId=document.getElementById("firstName")
+  let firstNameMessage=document.getElementById("firstNameError")
+  let firstNameRequired=document.getElementById("firstNameRequired")
+  firstNameMessage.innerText=errorMessage
+  firstNameRequired.style.color="red";
+  firstNameId.style.border="1px solid red"
+  return false;
+}
+function firstNameCorrect()
+{
+  let firstNameId=document.getElementById("firstName")
+  let firstNameMessage=document.getElementById("firstNameError")
+  let firstNameRequired=document.getElementById("firstNameRequired")
+  firstNameMessage.innerText=""
+  firstNameRequired.style.color="black";
+  firstNameId.style.border="1px solid black"
+  return false;
 }
 
