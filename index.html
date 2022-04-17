@@ -153,6 +153,7 @@
                 <div class="form-group">
                   <label for="occupation">Occupation</label>
                   <input type="text" name="Occupation" id="occupation" class="form-input">
+                  <p class="error-message" id="occupationError"></p>
                 </div>
               </div>
             </div>
@@ -161,6 +162,7 @@
                 <div class="form-group">
                   <label for="experience">Over All Years of Experience</label>
                   <input type="text" name="OYE" id="experience" class="form-input">
+                  <p class="error-message" id="experienceError"></p>
                 </div>
               </div>
             </div>
@@ -176,20 +178,23 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="graduation">Graduation</label>
+                  <label for="graduation">Graduation<span class="required" id="graduationRequired">*</span></label>
                   <select class="form-select" name="Graduation" id="graduation">
+                    <option value="Choose a graduation">Choose a graduation</option>
                     <option value="SSLC">SSLC</option>
                     <option value="HSC">HSC</option>
                     <option value="BE">BE</option>
                   </select>
+                  <p class="error-message" id="graduationError"></p>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="passingout">Year of Passing</label>
+                  <label for="passingout">Year of Passing<span class="required" id="passingoutRequired">*</span></label>
                   <input type="text" name="passingout" id="passingout" class="form-input">
+                  <p class="error-message" id="passingoutError"></p>
                 </div>
               </div>
             </div>
@@ -205,12 +210,13 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="practice">Department/Practice</label>
+                  <label for="practice">Department/Practice<span class="required" id="practiceRequired">*</span></label>
                   <select class="form-select" name="Practice" id="practice">
                     <option value="LAMP">LAMP</option>
                     <option value=".NET">.NET</option>
                     <option value="Oracle">ORACLE</option>
                   </select>
+                  <p class="error-message" id="practiceError"></p>
                 </div>
               </div>
             </div>

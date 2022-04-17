@@ -272,6 +272,17 @@ function validateMobileNumber()
     mobileNumberCorrect();
   }
 }
+function validateGraduation()
+{
+  let formGraduation=document.getElementById("graduation")
+  if(formGraduation.options[formGraduation.selectedIndex].value=="Choose a graduation")
+  {
+    graduationError("Select a Graduation");
+  }
+  else{
+    graduationCorrect();
+  }
+}
 function emailError(errorMessage)
 {
   let emailid=document.getElementById("email")
