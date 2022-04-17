@@ -283,6 +283,20 @@ function validateGraduation()
     graduationCorrect();
   }
 }
+
+function validatePractice()
+{
+  let formPractice=document.getElementById("practice")
+  if(formPractice.options[formPractice.selectedIndex].value=="Choose practice")
+  {
+    practiceError("Select a Practice");
+  }
+  else
+  {
+    practiceCorrect();
+  }
+
+}
 function emailError(errorMessage)
 {
   let emailid=document.getElementById("email")
@@ -429,5 +443,29 @@ function mobileNumberCorrect()
   mobileNumberMessage.innerText=""
   mobileNumberRequired.style.color="black";
   mobileNumberId.style.border="1px solid black"
+  return false;
+}
+function graduationError(errorMessage)
+{
+  let graduationMessage=document.getElementById("graduationError")
+  let graduationRequired=document.getElementById("graduationRequired")
+  graduationMessage.innerText=errorMessage
+  graduationRequired.style.color="red";
+  return false;
+}
+function graduationCorrect()
+{
+  let graduationMessage=document.getElementById("graduationError")
+  let graduationRequired=document.getElementById("graduationRequired")
+  graduationMessage.innerText=""
+  graduationRequired.style.color="black";
+  return false;
+}
+function practiceError(errorMessage)
+{
+  let stateMessage=document.getElementById("stateError")
+  let stateRequired=document.getElementById("stateRequired")
+  stateMessage.innerText=errorMessage
+  stateRequired.style.color="red";
   return false;
 }
