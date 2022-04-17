@@ -1,5 +1,16 @@
 body{
-    padding-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+  }
+  .background{
+    background-image: url("img.png");
+    background-size:cover;
+  }
+  .card{
+    margin:0 15% 0;
+    width:70%;
+    background-color: #ffffff;
   }
   label {
     display: block;
@@ -15,21 +26,25 @@ body{
   
   .form-step-active {
     display: block;
-    padding: 10px 50px 10px 50px;
-    background-color:white ;
+    padding: 10px;
+    background-color:#ffffff ;
     border-radius: 5px;
   }
   .main-body{
-    background-color: rgb(234, 234, 234);
-  }
-  /* .form-header{
-    background-color: violet;
-  } */
-  .form-input{
-    width:350px;
+    background-color: #ffffff;
     border-radius: 5px;
-    border: 1px solid rgb(61, 61, 61);
-    height: 35px;
+    margin: 2px;
+  }
+  .form-header{
+    /* background-color: violet; */
+    /* border: 1px solid black; */
+    margin: 10px 0 10px;
+  }
+  .form-input{
+    width:200px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    height: 30px;
   }
   .form-select{
     width: 200px;
@@ -43,9 +58,11 @@ body{
   .width-50{
     width:100px;
   }
-  .btn-active{
-    border: 1px black solid;
-  }
+  /* .btn-active{
+    border: 1px rgb(0, 0, 0) solid;
+    background-color: white;
+    color: black;
+  } */
   .btn{
     background-color: white;
   }
@@ -56,7 +73,7 @@ body{
     color: black;
   }
   .form-group{
-    margin-bottom: 50px;
+    /* margin-bottom: 10px; */
   }
   .disable-ancor{
     pointer-events: none;
@@ -64,14 +81,28 @@ body{
   }
   .btn-right{
     float: right;
+    border: 1px solid blue;
+    color: blue;    
   }
   .btn-left{
     float: left;
+    border: 1px solid red;
+    color: red;
   }
   .nav-btn{
-    /* margin:10px; */
+    margin:10px;
     width: 100px;
-    margin:0 10px 0;
+    height: 40px;
+    margin:0 10px 0; 
+    background-color: rgb(51, 120, 169);
+    color: white;
+    /* background-color: rgba(219,70,107,255);
+    color: white; */
+    /* margin:0 10px 0; */
+  }
+  .color-change{
+    background-color: rgba(219,70,107,255);
+    color: white;
   }
   .circle{
     height: 5px;
@@ -79,18 +110,66 @@ body{
     background-color: red;
   }
   .bar{
-    display: flex;
+    /* display: flex;
     background-color: blue;
     margin: 0 auto 0;
+    width: 50%; */
+    /* display: inline;
+    margin:5px auto 5px;
     width: 50%;
+    height: 5px;
+    border-radius: 10px;
+    background-color: rgb(104, 104, 104);
+    display: flex;
+    justify-content: space-between;
+    position: relative; */
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 15px auto 15px;
+    border-radius: 50%;
+  }
+  .bar::before{
+    content: "";
+    position: absolute;
+    top:50%;
+    height: 4px;
+    width:100%;
+    background-color: rgb(51, 120, 169);
+    border-radius: 50px;
+  }
+  .inner-bar{
+    width:8px;
+    height: 8px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    margin: 3.5px;
   }
   .bar-step{
-    width: 10px;
+    /* width: 10px;
     height: 10px;
     background-color: red;
     border-radius: 50%;
-   
+    margin: auto;
+    display: flex; */
+
+    /* display: flex;
+    display: inline;    */
+    top: 2px;
+    position: relative;
+    /* right: 1px; */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
   }
+  .bar-inactive{
+    background-color: rgb(121, 121, 121);
+  }
+  .bar-active{
+    background-color: rgba(219,70,107,255);
+  }
+
   /* .btn-group{
     position: relative;
   }

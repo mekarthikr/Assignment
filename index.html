@@ -9,39 +9,30 @@
     <script src="script.js" defer></script>
     <title>Registraion Form</title>
   </head>
-  <body class="container">
+  <body class="container background">
     <div class="card">
-      <h1 class="card-header form-header text-center">
+      <h1 class="form-header text-center">
         Employee Registration Form
       </h1>
-      <div class="card-body main-body">
+      <div style="" class="card-body main-body">
         <div class="container">
-          <div style="margin: auto;width: 60%;">
-            <a class="btn nav-btn btn-active"onclick="jumpForm(1)">Basic</a>
+          <div style="margin:0 5% 0">
+            <a class="btn  nav-btn btn-active color-change"onclick="jumpForm(1)">Basic</a>
             <a class="btn nav-btn disable-ancor" onclick="jumpForm(2)">Other</a>
             <a class="btn nav-btn disable-ancor" onclick="jumpForm(3)">Work</a>
             <a class="btn nav-btn disable-ancor" onclick="jumpForm(4)">Education</a>
             <a class="btn nav-btn disable-ancor" onclick="jumpForm(5)">Team</a>
-          </div>
             <div class="row">
-              <!-- <p style="display: inline;margin:5px auto 5px;width: 80%;height: 5px;border-radius: 10px;background-color: rgb(104, 104, 104);">
-                <li style="position: fixed;" >
-                  <ul><span class="circle"></span></ul>
-                </li>
-                
-                <span class="circle"></span>
-                <span class="circle"></span>
-                <span class="circle"></span>
-                <span class="circle"></span>
-              </p> -->
               <div class="bar">
-                <div class="bar-step"></div>
-                <div class="bar-step"></div>
-                <div class="bar-step"></div>
-                <div class="bar-step"></div>
-                <div class="bar-step"></div>
+                <div class="bar-step bar-inactive bar-active"><div class="inner-bar"></div></div>
+                <div class="bar-step bar-inactive"><div class="inner-bar"></div></div>
+                <div class="bar-step bar-inactive"><div class="inner-bar"></div></div>
+                <div class="bar-step bar-inactive"><div class="inner-bar"></div></div>
+                <div class="bar-step bar-inactive"><div class="inner-bar"></div></div>
               </div>
-            </div>            
+            </div> 
+          </div>
+           
           </div>
         <form action="#" class="form">
           <!-- BASIC -->
@@ -219,15 +210,17 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
-                <input type="checkbox" name="TandC" id="terms" class="form-check-input">
-                <label for="terms" class="form-check-label">Agree to Terms & Conditions</label>
+              <div  class="col">
+                <div style="margin: auto; width: 30%;" class="form-group">
+                  <input type="checkbox" name="TandC" id="terms" class="form-check-input">
+                  <label for="terms" class="form-check-label">Agree to Terms & Conditions</label>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <a class="btn btn-left btn-prev disable-ancor width-50 ml-auto">Previous</a>
-                <a onclick="clickTeamForm()" class="btn btn-right btn-next disable-ancor btn-position-right width-50 ml-auto">Next</a>
+                <a onclick="clickTeamForm()" class="btn btn-right btn-next disable-ancor btn-position-right width-50 ml-auto">Submit</a>
               </div>
             </div>
           </div>

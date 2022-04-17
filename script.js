@@ -3,6 +3,9 @@ const nextBtns = document.querySelectorAll(".btn-next");
 const formSteps = document.querySelectorAll(".form-step");
 const mainContainer = document.querySelectorAll(".container")
 const mainancor=mainContainer[0].querySelectorAll('a');
+const stepbar=document.querySelectorAll(".bar")
+const stepbardiv=document.querySelectorAll(".bar-step")
+console.log(stepbardiv)
 let formStepsNum = 0;
 console.log(formStepsNum)
 console.log(mainancor)
@@ -11,8 +14,6 @@ nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     console.log(formStepsNum+"click")
     console.log(formStepsNum)
-    // formStepsNum++;
-    // updateFormSteps();
 
   });
 });
@@ -35,15 +36,23 @@ function updateFormSteps() {
       formStep.classList.remove("form-step-active");
   });
   mainancor.forEach((anc)=>{
-    anc.classList.contains("btn-active") && 
-      anc.classList.remove("btn-active");
+    anc.classList.contains("color-change") && 
+      anc.classList.remove("color-change");
   })
-  // console.log(formStepsNum)
+  stepbardiv.forEach((step)=>{
+    step.classList.contains("bar-active") &&
+    step.classList.remove("bar-active") 
+
+  })
+  console.log(formStepsNum)
+  // console.log(stepbardiv[formStepsNum-1].classList)
   formSteps[formStepsNum].classList.add("form-step-active");
   let inancor=formSteps[formStepsNum].querySelectorAll('a');
   console.log(mainancor[formStepsNum].classList)
   mainancor[formStepsNum].classList.remove("disable-ancor")
-  mainancor[formStepsNum].classList.add("btn-active")
+  mainancor[formStepsNum].classList.add("color-change")
+  stepbardiv[formStepsNum].classList.remove("btn-inactive")
+  stepbardiv[formStepsNum].classList.add("bar-active")
   inancor.forEach((a)=>{
     a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
   })
