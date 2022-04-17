@@ -5,7 +5,7 @@ const mainContainer = document.querySelectorAll(".container")
 const mainancor=mainContainer[0].querySelectorAll('a');
 let formStepsNum = 0;
 console.log(formStepsNum)
-
+console.log(mainancor)
 nextBtns.forEach((btn) => {
   console.log(formStepsNum)
   btn.addEventListener("click", () => {
@@ -34,11 +34,16 @@ function updateFormSteps() {
     formStep.classList.contains("form-step-active") &&
       formStep.classList.remove("form-step-active");
   });
+  mainancor.forEach((anc)=>{
+    anc.classList.contains("btn-active") && 
+      anc.classList.remove("btn-active");
+  })
   // console.log(formStepsNum)
   formSteps[formStepsNum].classList.add("form-step-active");
   let inancor=formSteps[formStepsNum].querySelectorAll('a');
   console.log(mainancor[formStepsNum].classList)
   mainancor[formStepsNum].classList.remove("disable-ancor")
+  mainancor[formStepsNum].classList.add("btn-active")
   inancor.forEach((a)=>{
     a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
   })
@@ -47,12 +52,13 @@ function jumpForm(stepNumber)
 {
   console.log(stepNumber)
   formStepsNum=stepNumber-1
-  formSteps.forEach((formStep) => {
-    formStep.classList.contains("form-step-active") &&
-      formStep.classList.remove("form-step-active");
-  });
+  // formSteps.forEach((formStep) => {
+  //   formStep.classList.contains("form-step-active") &&
+  //     formStep.classList.remove("form-step-active");
+  // });
 
-  formSteps[formStepsNum].classList.add("form-step-active");
+  // formSteps[formStepsNum].classList.add("form-step-active");
+  updateFormSteps()
 
 }
 function validateEmail(){
