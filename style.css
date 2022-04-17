@@ -72,9 +72,9 @@ body{
   .required{
     color: black;
   }
-  .form-group{
-    /* margin-bottom: 10px; */
-  }
+  /* .form-group{
+    margin-bottom: 10px;
+  } */
   .disable-ancor{
     pointer-events: none;
     cursor: default;
