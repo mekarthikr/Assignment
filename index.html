@@ -90,7 +90,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="DOB">Date of Birth <span class="required" id="DOBRequired">*</span></label>
-                  <input class="form-input" type="text" name="Date of Birth" id="DOB">
+                  <input onblur="validateDateOfBirth()" class="form-input" type="text" name="Date of Birth" id="DOB">
                   <p class="error-message" id="DOBError"></p>
                 </div>
               </div>
@@ -115,10 +115,10 @@
               <div class="col">
                 <div class="form-group">
                   <label for="states">State <span class="required" id="stateRequired">*</span></label>
-                  <select class="form-select" name="states" id="states">
-                    <option value="Kerala">Tamil Nadu</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Kerala">Karnataka</option>
+                  <select class="form-select" name="states" id="state">
+                    <option value="Choose State">Choose State</option>
+                    <!-- <option value="Kerala">Kerala</option>
+                    <option value="Kerala">Karnataka</option> -->
                   </select>
                   <p class="error-message" id="stateError"></p>
                 </div>

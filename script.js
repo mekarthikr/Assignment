@@ -5,6 +5,15 @@ const mainContainer = document.querySelectorAll(".container")
 const mainancor=mainContainer[0].querySelectorAll('a');
 const stepbar=document.querySelectorAll(".bar")
 const stepbardiv=document.querySelectorAll(".bar-step")
+const stateArray = [ "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Karnataka",
+"Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand","Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Delhi","Lakshadweep","Puducherry"]
+let state = document.getElementById("state")
+for(var i = 0; i<35; i++){
+    var option = document.createElement('option')
+    option.value = stateArray[i]
+    option.innerHTML = stateArray[i]
+    state.appendChild(option)
+}
 console.log(stepbardiv)
 let formStepsNum = 0;
 console.log(formStepsNum)
@@ -88,12 +97,13 @@ class Validation{
   numberRegex=/^[6789]{1}[\d]{9}$/;
   emailUserRegex=/^([a-z]+[\.-\d]*)@$/;
   emailDomainRegex=/^([a-z-]+)\.([a-z\-]{2,8})(\.[a-z]{2,8})?$/;
-  dateRegex=/^(\d{4})\-(0[1-9]|1[0-2])\-(0[1-9]|[12][0-9]|3[01])$/; 
+  dateRegex=/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4})$/; 
   user={
     email:"",
     firstName:"",
     password:"",
-    confirmPassword:""
+    confirmPassword:"",
+    DOB:""
   }
 }
 
@@ -187,6 +197,40 @@ function validateLastName()
   }
   else{
     lastNameCorrect();
+  }
+}
+
+// function validateDateOfBirth()
+// {
+//   let formDOB=document.getElementById("DOB").value;
+//   validate.user.DOB=formDOB;
+//   let current = new Date();
+//   let DOB=new Date(formDOB);
+//   console.log(DOB);
+//   let today = new Date();
+// const yyyy = today.getFullYear();
+// let mm = today.getMonth() + 1; // Months start at 0!
+// let dd = today.getDate();
+
+// if (dd < 10) dd = '0' + dd;
+// if (mm < 10) mm = '0' + mm;
+// let currentDate=dd + '/' + mm + '/' + yyyy;
+// console.log(currentDate);
+// console.log(DOB);
+//   let days=Math.round((current.getTime()-DOB.getTime())/(1000*60*60*24));
+//   console.log(days);
+//   let age=days/365;
+//   console.log(age);
+// }
+
+function validateGender()
+{
+  if(document.getElementById("Male").checked==false&&document.getElementById("Female").checked==false&&document.getElementById("Others").checked==false)
+  {
+    genderError("Select a option");
+  }
+  else{
+    genderCorrect();
   }
 }
 function emailError(errorMessage)
@@ -285,4 +329,19 @@ function lastNameCorrect()
   lastNameId.style.border="1px solid black"
   return true;
 }
-
+function genderError(errorMessage)
+{
+  let genderMessage=document.getElementById("genderError")
+  let genderRequired=document.getElementById("genderRequired")
+  genderMessage.innerText=errorMessage
+  genderRequired.style.color="red";
+  return false;
+}
+function genderCorrect()
+{
+  let genderMessage=document.getElementById("genderError")
+  let genderRequired=document.getElementById("genderRequired")
+  genderMessage.innerText=errorMessage
+  genderRequired.style.color="black";
+  return true;
+}
