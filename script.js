@@ -14,6 +14,16 @@ for(var i = 0; i<35; i++){
     option.innerHTML = stateArray[i]
     state.appendChild(option)
 }
+const practiceArray = ["LAMP","Java","BFS","Dotnet","Oracle","EBA"]
+let practice = document.getElementById("practice")
+for(var i = 0; i<6; i++){
+    var option = document.createElement('option')
+    option.value = practiceArray[i]
+    option.innerHTML = practiceArray[i]
+    practice.appendChild(option)
+}
+// validateGender()
+// validateState()
 console.log(stepbardiv)
 let formStepsNum = 0;
 console.log(formStepsNum)
@@ -233,6 +243,35 @@ function validateGender()
     genderCorrect();
   }
 }
+
+function validateState()
+{
+  let formState=document.getElementById("state")
+  if(formState.options[formState.selectedIndex].value=="Choose State")
+  {
+    stateError("Select a State");
+  }
+  else{
+    stateCorrect();
+  }
+}
+
+function validateMobileNumber()
+{
+  let formMobileNumber=document.getElementById("mobilenumber").value;
+  if(formMobileNumber=="")
+  {
+    mobileNumberError("Mobile Number Required")
+  }
+  else if(validate.numberRegex.test(formMobileNumber)==false)
+  {
+    mobileNumberError("Mobile Number start with 6/7/8/9 and should contain 10 digits")
+  }
+  else
+  {
+    mobileNumberCorrect();
+  }
+}
 function emailError(errorMessage)
 {
   let emailid=document.getElementById("email")
@@ -341,7 +380,43 @@ function genderCorrect()
 {
   let genderMessage=document.getElementById("genderError")
   let genderRequired=document.getElementById("genderRequired")
-  genderMessage.innerText=errorMessage
+  genderMessage.innerText=""
   genderRequired.style.color="black";
   return true;
+}
+function stateError(errorMessage)
+{
+  let stateMessage=document.getElementById("stateError")
+  let stateRequired=document.getElementById("stateRequired")
+  stateMessage.innerText=errorMessage
+  stateRequired.style.color="red";
+  return false;
+}
+function stateCorrect()
+{
+  let stateMessage=document.getElementById("stateError")
+  let stateRequired=document.getElementById("stateRequired")
+  stateMessage.innerText=""
+  stateRequired.style.color="black";
+  return true;
+}
+function mobileNumberError(errorMessage)
+{
+  let mobileNumberId=document.getElementById("mobilenumber")
+  let mobileNumberMessage=document.getElementById("mobileNumberError")
+  let mobileNumberRequired=document.getElementById("mobileNumberRequired")
+  mobileNumberMessage.innerText=errorMessage
+  mobileNumberRequired.style.color="red";
+  mobileNumberId.style.border="1px solid red"
+  return false;
+}
+function mobileNumberCorrect()
+{
+  let mobileNumberId=document.getElementById("mobilenumber")
+  let mobileNumberMessage=document.getElementById("mobileNumberError")
+  let mobileNumberRequired=document.getElementById("mobileNumberRequired")
+  mobileNumberMessage.innerText=""
+  mobileNumberRequired.style.color="black";
+  mobileNumberId.style.border="1px solid black"
+  return false;
 }
