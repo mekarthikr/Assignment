@@ -174,6 +174,21 @@ function validateFirstName()
   }
 }
 
+function validateLastName()
+{
+  let formFirstName=document.getElementById("lastName").value;
+  validate.user.firstName=formFirstName;
+  if(validate.alphaRegex.test(formFirstName)==false){
+    lastNameError("Enter a valid Name")
+  }
+  else if(3>formFirstName.length||formFirstName.length>15)
+  {
+    lastNameError("Name should be between 3 - 15")
+  }
+  else{
+    lastNameCorrect();
+  }
+}
 function emailError(errorMessage)
 {
   let emailid=document.getElementById("email")
@@ -252,6 +267,22 @@ function firstNameCorrect()
   firstNameMessage.innerText=""
   firstNameRequired.style.color="black";
   firstNameId.style.border="1px solid black"
+  return true;
+}
+function lastNameError(errorMessage)
+{
+  let lastNameId=document.getElementById("lastName")
+  let lastNameMessage=document.getElementById("lastNameError")
+  lastNameMessage.innerText=errorMessage
+  lastNameId.style.border="1px solid red"
   return false;
+}
+function lastNameCorrect()
+{
+  let lastNameId=document.getElementById("lastName")
+  let lastNameMessage=document.getElementById("lastNameError")
+  lastNameMessage.innerText=""
+  lastNameId.style.border="1px solid black"
+  return true;
 }
 
