@@ -29,7 +29,7 @@ prevBtns.forEach((btn) => {
     updateFormSteps();
   });
 });
-
+console.log(formSteps)
 
 function updateFormSteps() {
   formSteps.forEach((formStep) => {
