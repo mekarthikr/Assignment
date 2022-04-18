@@ -57,81 +57,25 @@ function updateFormSteps() {
 }
 function jumpForm(stepNumber)
 {
-  // if(formStepsNum==0)
-  // {
-  //   if(clickBasicForm()==true)
-  //   {
-  //     formStepsNum=stepNumber-1
-  //     updateFormSteps()
-  //   }
-  //   else{
-  //     // alert("fill the form")
-  //     return false;
-  //   }
-  // }
-  // if(formStepsNum==1)
-  // {
-  //   if(clickOtherForm()==true)
-  //   {
-  //     formStepsNum=stepNumber-1
-  //     updateFormSteps()
-  //   }
-  //   else{
-  //     // alert("fill the form")
-  //     return false
-  //   }
-  // }
-  // if(formStepsNum==3)
-  // {
-  //   if(clickEducationForm()==true)
-  //   {
       formStepsNum=stepNumber-1
       updateFormSteps()
 }
-    // }
-    // else{
-    //   // alert("fill the form")
-    //   return false
-    // }
-//   }
-//   if(formStepsNum==4)
-//   {
-//     if(clickTeamForm()==true)
-//     {
-//       formStepsNum=stepNumber-1
-//       updateFormSteps()
-//     }
-//     else{
-//       // alert("fill the form")
-//       return false;
-//     }
-//   }
-//   else
-//   {
-//     formStepsNum=stepNumber-1
-//     updateFormSteps()
-//   }
-// }
 function clickBasicForm(){
   if(validateEmail()==false)
   {
-    emailError("Email ID Required")
-    // return false;  
+    emailError("Email ID Required") 
   }
   if(validatePassword()==false)
   {
     passwordError("Password is Required")
-    // return false;  
   }
   if(validatePasswordConfirm()==false)
   {
     passwordConfirmationError("Password Confirmation is Required");
-    // return false;  
   }
   if(validateFirstName()==false)
   {
     firstNameError("First Name is Required")
-    // return false;  
   }
   else
   {
@@ -144,22 +88,18 @@ function clickOtherForm(){
   if(validateDateOfBirth()==false)
   {
     dateError("Date of Birth is Required")
-    // return false;  
   }
   if(validateGender()==false)
   {
     genderError("Gender is Required")
-    // return false;  
   }
   if(validateState()==false)
   {
-    stateError("State is Required")
-    // return false;  
+    stateError("State is Required") 
   }
   if(validateMobileNumber()==false)
   {
     mobileNumberError("Mobile Number is Required")
-    // return false;  
   }
   else
   {
@@ -176,12 +116,10 @@ function clickEducationForm(){
   if(validateGraduation()==false)
   {
     graduationError("Graduation is Required")
-    // return false; 
   }
   if(validateYearOfPassing()==false)
   {
     yearOfPassingError("Year of Passing is Required")
-    // return false; 
   }
   else
   {
@@ -225,7 +163,6 @@ let validate = new Validation();
 function validateEmail()
 {
   let formEmail=document.getElementById("email").value;
-  validate.user.email=formEmail;
   if(formEmail=="")
   {
     emailError("Email ID Required")
@@ -250,7 +187,6 @@ function validateEmail()
 function validatePassword()
 {
   let formPassword=document.getElementById("password").value;
-  validate.user.password=formPassword;
   if(formPassword=="")
   {
     passwordError("Password is Required");
@@ -275,7 +211,6 @@ function validatePasswordConfirm()
 {
   let formPassword=document.getElementById("password").value;
   let formConfirmPassword=document.getElementById("confirmPassword").value;
-  validate.user.confirmPassword=formConfirmPassword;
   if(formPassword=="")
   {
     passwordError("Password is Required")
@@ -299,7 +234,6 @@ function validatePasswordConfirm()
 function validateFirstName()
 {
   let formFirstName=document.getElementById("firstName").value;
-  validate.user.firstName=formFirstName;
   if(formFirstName=="")
   {
     firstNameError("First Name is Required")
@@ -323,7 +257,6 @@ function validateFirstName()
 function validateLastName()
 {
   let formFirstName=document.getElementById("lastName").value;
-  validate.user.firstName=formFirstName;
   if(validate.alphaRegex.test(formFirstName)==false){
     lastNameError("Enter a valid Name")
     return false;
@@ -338,29 +271,6 @@ function validateLastName()
     return true;
   }
 }
-
-// function validateDateOfBirth()
-// {
-//   let formDOB=document.getElementById("DOB").value;
-//   validate.user.DOB=formDOB;
-//   let current = new Date();
-//   let DOB=new Date(formDOB);
-//   console.log(DOB);
-//   let today = new Date();
-// const yyyy = today.getFullYear();
-// let mm = today.getMonth() + 1; // Months start at 0!
-// let dd = today.getDate();
-
-// if (dd < 10) dd = '0' + dd;
-// if (mm < 10) mm = '0' + mm;
-// let currentDate=dd + '/' + mm + '/' + yyyy;
-// console.log(currentDate);
-// console.log(DOB);
-//   let days=Math.round((current.getTime()-DOB.getTime())/(1000*60*60*24));
-//   console.log(days);
-//   let age=days/365;
-//   console.log(age);
-// }
 function validateDateOfBirth()
 {
   let date=document.getElementById("DOB").value;
