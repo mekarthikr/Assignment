@@ -169,6 +169,11 @@ body{
   .bar-active{
     background-color: rgba(219,70,107,255);
   }
+  .success{
+    display: none;
+    text-align: center;
+    margin-top: 25%;
+  }
 
   /* .btn-group{
     position: relative;

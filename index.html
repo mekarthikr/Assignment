@@ -10,7 +10,8 @@
     <title>Registraion Form</title>
   </head>
   <body class="container background">
-    <div class="card">
+    <h1 class="success" id="success"></h1>
+    <div id="main-card" class="card">
       <h1 class="form-header text-center">
         Employee Registration Form
       </h1>
@@ -73,7 +74,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="lastName">Last Name</label>
-                  <input onblur="validateLastName()" class="form-input" type="text" name="Last Name" id="lastName">
+                  <input class="form-input" type="text" name="Last Name" id="lastName">
                   <p class="error-message" id="lastNameError"></p>
                 </div>
               </div>
@@ -90,7 +91,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="DOB">Date of Birth <span class="required" id="DOBRequired">*</span></label>
-                  <input onblur="validateDateOfBirth()" class="form-input" type="text" name="Date of Birth" id="DOB">
+                  <input onblur="validateDateOfBirth()" class="form-input" type="text" name="Date of Birth" id="DOB" placeholder="DD/MM/YYYY">
                   <p class="error-message" id="DOBError"></p>
                 </div>
               </div>
@@ -117,8 +118,6 @@
                   <label for="states">State <span class="required" id="stateRequired">*</span></label>
                   <select onchange="validateState()" class="form-select" name="states" id="state">
                     <option value="Choose State">Choose State</option>
-                    <!-- <option value="Kerala">Kerala</option>
-                    <option value="Kerala">Karnataka</option> -->
                   </select>
                   <p class="error-message" id="stateError"></p>
                 </div>
@@ -193,7 +192,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="passingout">Year of Passing <span class="required" id="passingoutRequired">*</span></label>
-                  <input type="text" name="passingout" id="passingout" class="form-input">
+                  <input onblur="validateYearOfPassing()" placeholder="MM/YYYY" type="text" name="passingout" id="passingout" class="form-input">
                   <p class="error-message" id="passingoutError"></p>
                 </div>
               </div>

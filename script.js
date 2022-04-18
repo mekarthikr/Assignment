@@ -22,21 +22,7 @@ for(var i = 0; i<6; i++){
     option.innerHTML = practiceArray[i]
     practice.appendChild(option)
 }
-// validateGender()
-// validateState()
-console.log(stepbardiv)
 let formStepsNum = 0;
-console.log(formStepsNum)
-console.log(mainancor)
-nextBtns.forEach((btn) => {
-  console.log(formStepsNum)
-  btn.addEventListener("click", () => {
-    console.log(formStepsNum+"click")
-    console.log(formStepsNum)
-
-  });
-});
-
 prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum--;
@@ -46,7 +32,6 @@ prevBtns.forEach((btn) => {
 
 
 function updateFormSteps() {
-  console.log(formStepsNum+"inside")
   formSteps.forEach((formStep) => {
     formStep.classList.contains("form-step-active") &&
       formStep.classList.remove("form-step-active");
@@ -60,10 +45,8 @@ function updateFormSteps() {
     step.classList.remove("bar-active") 
 
   })
-  console.log(formStepsNum)
   formSteps[formStepsNum].classList.add("form-step-active");
   let inancor=formSteps[formStepsNum].querySelectorAll('a');
-  console.log(mainancor[formStepsNum].classList)
   mainancor[formStepsNum].classList.remove("disable-ancor")
   mainancor[formStepsNum].classList.add("color-change")
   stepbardiv[formStepsNum].classList.remove("btn-inactive")
@@ -74,48 +57,160 @@ function updateFormSteps() {
 }
 function jumpForm(stepNumber)
 {
-  console.log(stepNumber)
-  formStepsNum=stepNumber-1
-  updateFormSteps()
+  // if(formStepsNum==0)
+  // {
+  //   if(clickBasicForm()==true)
+  //   {
+  //     formStepsNum=stepNumber-1
+  //     updateFormSteps()
+  //   }
+  //   else{
+  //     // alert("fill the form")
+  //     return false;
+  //   }
+  // }
+  // if(formStepsNum==1)
+  // {
+  //   if(clickOtherForm()==true)
+  //   {
+  //     formStepsNum=stepNumber-1
+  //     updateFormSteps()
+  //   }
+  //   else{
+  //     // alert("fill the form")
+  //     return false
+  //   }
+  // }
+  // if(formStepsNum==3)
+  // {
+  //   if(clickEducationForm()==true)
+  //   {
+      formStepsNum=stepNumber-1
+      updateFormSteps()
 }
+    // }
+    // else{
+    //   // alert("fill the form")
+    //   return false
+    // }
+//   }
+//   if(formStepsNum==4)
+//   {
+//     if(clickTeamForm()==true)
+//     {
+//       formStepsNum=stepNumber-1
+//       updateFormSteps()
+//     }
+//     else{
+//       // alert("fill the form")
+//       return false;
+//     }
+//   }
+//   else
+//   {
+//     formStepsNum=stepNumber-1
+//     updateFormSteps()
+//   }
+// }
 function clickBasicForm(){
-  console.log("basic cicked")
-  if(validateEmail()&&validateFirstName()&&validatePassword()&&validatePasswordConfirm()==true)
+  if(validateEmail()==false)
   {
-    formStepsNum++;
-    updateFormSteps(); 
+    emailError("Email ID Required")
+    // return false;  
+  }
+  if(validatePassword()==false)
+  {
+    passwordError("Password is Required")
+    // return false;  
+  }
+  if(validatePasswordConfirm()==false)
+  {
+    passwordConfirmationError("Password Confirmation is Required");
+    // return false;  
+  }
+  if(validateFirstName()==false)
+  {
+    firstNameError("First Name is Required")
+    // return false;  
   }
   else
   {
-    console
+    formStepsNum++;
+    updateFormSteps();
+    return true;     
   }
 }
 function clickOtherForm(){
-  formStepsNum++;
-  updateFormSteps();
+  if(validateDateOfBirth()==false)
+  {
+    dateError("Date of Birth is Required")
+    // return false;  
+  }
+  if(validateGender()==false)
+  {
+    genderError("Gender is Required")
+    // return false;  
+  }
+  if(validateState()==false)
+  {
+    stateError("State is Required")
+    // return false;  
+  }
+  if(validateMobileNumber()==false)
+  {
+    mobileNumberError("Mobile Number is Required")
+    // return false;  
+  }
+  else
+  {
+    formStepsNum++;
+    updateFormSteps();  
+    return true;   
+  }
 }
 function clickWorkForm(){
   formStepsNum++;
   updateFormSteps();
 }
 function clickEducationForm(){
-  formStepsNum++;
-  updateFormSteps();
+  if(validateGraduation()==false)
+  {
+    graduationError("Graduation is Required")
+    // return false; 
+  }
+  if(validateYearOfPassing()==false)
+  {
+    yearOfPassingError("Year of Passing is Required")
+    // return false; 
+  }
+  else
+  {
+    formStepsNum++;
+    updateFormSteps(); 
+    return true    
+  }
 }
 function clickTeamForm(){
-  formStepsNum++;
-  updateFormSteps();
+  if(validatePractice()==false)
+  {
+    practiceError("Practice is Required")
+    return false; 
+  }
+  if(validateTandC()==false)
+  {
+    alert("Click on Terms and Conditions")
+  }
+  return true  
 }
-
-
-
 // VALIDATION
 class Validation{
   alphaRegex=/^[a-zA-Z ]+$/;
   numberRegex=/^[6789]{1}[\d]{9}$/;
   emailUserRegex=/^([a-z]+[\.-\d]*)@$/;
   emailDomainRegex=/^([a-z-]+)\.([a-z\-]{2,8})(\.[a-z]{2,8})?$/;
-  dateRegex=/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4})$/; 
+  dateRegex=/^(0)[1-9]|([1-2][0-9]|(3)[0-1])(\/)(((0)[1-9])|((1)[0-2]))(\/)\d{4}$/; 
+  passwordRegex=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[#,@,$,%,!]).{8,}$/
+  yearOfPassing=/^(((0)[1-9])|((1)[0-2]))(\/)\d{4}$/
   user={
     email:"",
     firstName:"",
@@ -155,11 +250,19 @@ function validateEmail()
 function validatePassword()
 {
   let formPassword=document.getElementById("password").value;
-  console.log(formPassword)
   validate.user.password=formPassword;
   if(formPassword=="")
   {
     passwordError("Password is Required");
+    return false;
+  }
+  else if(formPassword.length<8)
+  {
+    passwordError("Password Should have more than 8 characters")
+  }
+  else if(validate.passwordRegex.test(formPassword)==false)
+  {
+    passwordError("Password should contain alphabets upper and lower case,number and special characters[@,#,$,%,&,!]");
     return false;
   }
   else{
@@ -172,7 +275,6 @@ function validatePasswordConfirm()
 {
   let formPassword=document.getElementById("password").value;
   let formConfirmPassword=document.getElementById("confirmPassword").value;
-  console.log(formConfirmPassword)
   validate.user.confirmPassword=formConfirmPassword;
   if(formPassword=="")
   {
@@ -259,7 +361,39 @@ function validateLastName()
 //   let age=days/365;
 //   console.log(age);
 // }
-
+function validateDateOfBirth()
+{
+  let date=document.getElementById("DOB").value;
+  let dateArray=date.split("/")
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1;
+  let dd = today.getDate();
+  if (dd < 10) dd = '0' + dd;
+  if (mm < 10) mm = '0' + mm;
+  let todayDate=dd+"/"+mm+"/"+yyyy
+  currentDate=todayDate.split("/")
+  age=currentDate[2]-dateArray[2]
+  if(date=="")
+  {
+    dateError("Date is Required")
+    return false
+  }
+  if(validate.dateRegex.test(date)==false)
+  {
+    dateError("Enter a valid date")
+    return false
+  }
+  else if(age<=18)
+  {
+    dateError("Age should be greater than 18")
+    return false
+  }
+  else{
+    dateCorrect()
+    return true
+  }
+}
 function validateGender()
 {
   if(document.getElementById("Male").checked==false&&document.getElementById("Female").checked==false&&document.getElementById("Others").checked==false)
@@ -319,7 +453,25 @@ function validateGraduation()
     return true;
   }
 }
-
+function validateYearOfPassing()
+{
+  let formPassingOut=document.getElementById("passingout").value
+  if(formPassingOut=="")
+  {
+    yearOfPassingError("Year of passing is Required")
+    return false;
+  }
+  if(validate.yearOfPassing.test(formPassingOut)==false)
+  {
+    yearOfPassingError("Enter the month and year in valid format")
+    return false
+  }
+  else
+  {
+    yearOfPassingCorrect();
+    return true;
+  }
+}
 function validatePractice()
 {
   let formPractice=document.getElementById("practice")
@@ -431,6 +583,26 @@ function lastNameCorrect()
   lastNameId.style.border="1px solid black"
   return true;
 }
+function dateError(errorMessage)
+{
+  let DOBId=document.getElementById("DOB")
+  let DOBMessage=document.getElementById("DOBError")
+  let DOBRequired=document.getElementById("DOBRequired")
+  DOBMessage.innerText=errorMessage
+  DOBRequired.style.color="red";
+  DOBId.style.border="1px solid red"
+  return false;
+}
+function dateCorrect()
+{
+  let DOBId=document.getElementById("DOB")
+  let DOBMessage=document.getElementById("DOBError")
+  let DOBRequired=document.getElementById("DOBRequired")
+  DOBMessage.innerText=""
+  DOBRequired.style.color="black";
+  DOBId.style.border="1px solid black"
+  return false;
+}
 function genderError(errorMessage)
 {
   let genderMessage=document.getElementById("genderError")
@@ -507,11 +679,49 @@ function practiceError(errorMessage)
   practiceRequired.style.color="red";
   return false;
 }
-function practiceError(errorMessage)
+function practiceCorrect()
 {
   let practiceMessage=document.getElementById("practiceError")
   let practiceRequired=document.getElementById("practiceRequired")
   practiceMessage.innerText=""
   practiceRequired.style.color="black";
   return true;
+}
+function yearOfPassingError(errorMessage)
+{
+  let passingOutId=document.getElementById("passingout")
+  let passingOutMessage=document.getElementById("passingoutError")
+  let passingOutRequired=document.getElementById("passingoutRequired")
+  passingOutMessage.innerText=errorMessage
+  passingOutRequired.style.color="red";
+  passingOutId.style.border="1px solid red"
+  return false;
+}
+function yearOfPassingCorrect()
+{
+  let passingOutId=document.getElementById("passingout")
+  let passingOutMessage=document.getElementById("passingoutError")
+  let passingOutRequired=document.getElementById("passingoutRequired")
+  passingOutMessage.innerText=""
+  passingOutRequired.style.color="black";
+  passingOutId.style.border="1px solid black"
+  return true;
+}
+function validateTandC()
+{
+  let checkTandC=document.getElementById("terms");
+  let card=document.getElementById("main-card");
+  let success=document.getElementById("success");
+  if(checkTandC.checked!=true)
+  {
+    return false;
+  }
+  else
+  {
+    console.log("Thankyou for registering")
+    card.style.display="none";
+    success.innerText=" Thank you for Registering ";
+    success.style.display="block";
+    success.style.color="white";
+  }
 }
