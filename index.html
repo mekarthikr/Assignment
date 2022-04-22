@@ -50,7 +50,7 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="password">Password <span class="required" id="passwordRequired" >*</span></label>
+                  <label for="password">Password <img data-toggle="tooltip" data-placement="right" id="requiredImg" title=""  src="/question-circle.svg"><span class="required" id="passwordRequired" > *</span></label>
                   <input onblur="validatePassword()" class="form-input" type="password" name="password" id="password">
                   <p class="error-message" id="passwordError"></p>
                 </div>
@@ -91,7 +91,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="DOB">Date of Birth <span class="required" id="DOBRequired">*</span></label>
-                  <input onblur="validateDateOfBirth()" class="form-input" type="text" name="Date of Birth" id="DOB" placeholder="DD/MM/YYYY">
+                  <input onblur="validateDateOfBirth()" class="form-input" type="date" name="Date of Birth" id="DOB" placeholder="DD/MM/YYYY">
                   <p class="error-message" id="DOBError"></p>
                 </div>
               </div>
@@ -173,16 +173,26 @@
             </div>
           </div>
           <!-- EDUCATION -->
-          <div class="form-step">
+          <div class="form-step form-step-active">
             <div class="row">
               <div class="col">
                 <div class="form-group">
                   <label for="graduation">Graduation <span class="required" id="graduationRequired">*</span></label>
-                  <select onchange="validateGraduation()" class="form-select" name="Graduation" id="graduation">
+                  <!-- <select onchange="validateGraduation()" class="form-select" name="Graduation" id="graduation">
                     <option value="Choose a graduation">Choose a graduation</option>
                     <option value="SSLC">SSLC</option>
                     <option value="HSC">HSC</option>
                     <option value="BE">BE</option>
+                  </select> -->
+                  <select onchange="validateGraduation()" class="form-select select" name="Graduation" id="graduation" multiple>
+                    <option value="1">SSLC</option>
+                    <option value="2">HSC</option>
+                    <option value="3">BE</option>
+                    <option value="4">ME</option>
+                    <!-- <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option> -->
                   </select>
                   <p class="error-message" id="graduationError"></p>
                 </div>
@@ -192,7 +202,7 @@
               <div class="col">
                 <div class="form-group">
                   <label for="passingout">Year of Passing <span class="required" id="passingoutRequired">*</span></label>
-                  <input onblur="validateYearOfPassing()" placeholder="MM/YYYY" type="text" name="passingout" id="passingout" class="form-input">
+                  <input onblur="validateYearOfPassing()" type="month" name="passingout" id="passingout" class="form-input">
                   <p class="error-message" id="passingoutError"></p>
                 </div>
               </div>

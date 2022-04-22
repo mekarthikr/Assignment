@@ -5,6 +5,9 @@ const mainContainer = document.querySelectorAll(".container")
 const mainancor=mainContainer[0].querySelectorAll('a');
 const stepbar=document.querySelectorAll(".bar")
 const stepbardiv=document.querySelectorAll(".bar-step")
+
+// State List
+
 const stateArray = [ "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Karnataka",
 "Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand","Uttar Pradesh","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Delhi","Lakshadweep","Puducherry"]
 let state = document.getElementById("state")
@@ -14,6 +17,9 @@ for(var i = 0; i<35; i++){
     option.innerHTML = stateArray[i]
     state.appendChild(option)
 }
+
+// Practice List
+
 const practiceArray = ["LAMP","Java","BFS","Dotnet","Oracle","EBA"]
 let practice = document.getElementById("practice")
 for(var i = 0; i<6; i++){
@@ -22,7 +28,15 @@ for(var i = 0; i<6; i++){
     option.innerHTML = practiceArray[i]
     practice.appendChild(option)
 }
+
+// Tool Tip
+
+const tooltip=document.getElementById("requiredImg").title="Password should be \nlength greater than 8\nShould contain atleast one\nalphabets upper and lower case \nnumber \nspecial characters[@,#,$,%,&,!]";
+
+// Main Form index
+
 let formStepsNum = 0;
+
 prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     formStepsNum--;
@@ -30,6 +44,7 @@ prevBtns.forEach((btn) => {
   });
 });
 
+// Change the Form View
 
 function updateFormSteps() {
   formSteps.forEach((formStep) => {
@@ -55,83 +70,33 @@ function updateFormSteps() {
     a.classList.contains("disable-ancor")&&a.classList.remove("disable-ancor")
   })
 }
+
+// Jump From one Form to another
+
 function jumpForm(stepNumber)
 {
-  // if(formStepsNum==0)
-  // {
-  //   if(clickBasicForm()==true)
-  //   {
-  //     formStepsNum=stepNumber-1
-  //     updateFormSteps()
-  //   }
-  //   else{
-  //     // alert("fill the form")
-  //     return false;
-  //   }
-  // }
-  // if(formStepsNum==1)
-  // {
-  //   if(clickOtherForm()==true)
-  //   {
-  //     formStepsNum=stepNumber-1
-  //     updateFormSteps()
-  //   }
-  //   else{
-  //     // alert("fill the form")
-  //     return false
-  //   }
-  // }
-  // if(formStepsNum==3)
-  // {
-  //   if(clickEducationForm()==true)
-  //   {
       formStepsNum=stepNumber-1
       updateFormSteps()
 }
-    // }
-    // else{
-    //   // alert("fill the form")
-    //   return false
-    // }
-//   }
-//   if(formStepsNum==4)
-//   {
-//     if(clickTeamForm()==true)
-//     {
-//       formStepsNum=stepNumber-1
-//       updateFormSteps()
-//     }
-//     else{
-//       // alert("fill the form")
-//       return false;
-//     }
-//   }
-//   else
-//   {
-//     formStepsNum=stepNumber-1
-//     updateFormSteps()
-//   }
-// }
+
+
+
 function clickBasicForm(){
   if(validateEmail()==false)
   {
     emailError("Email ID Required")
-    // return false;  
   }
   if(validatePassword()==false)
   {
     passwordError("Password is Required")
-    // return false;  
   }
   if(validatePasswordConfirm()==false)
   {
     passwordConfirmationError("Password Confirmation is Required");
-    // return false;  
   }
   if(validateFirstName()==false)
   {
-    firstNameError("First Name is Required")
-    // return false;  
+    firstNameError("First Name is Required") 
   }
   else
   {
@@ -143,23 +108,19 @@ function clickBasicForm(){
 function clickOtherForm(){
   if(validateDateOfBirth()==false)
   {
-    dateError("Date of Birth is Required")
-    // return false;  
+    dateError("Date of Birth is Required") 
   }
   if(validateGender()==false)
   {
     genderError("Gender is Required")
-    // return false;  
   }
   if(validateState()==false)
   {
     stateError("State is Required")
-    // return false;  
   }
   if(validateMobileNumber()==false)
   {
     mobileNumberError("Mobile Number is Required")
-    // return false;  
   }
   else
   {
@@ -176,12 +137,10 @@ function clickEducationForm(){
   if(validateGraduation()==false)
   {
     graduationError("Graduation is Required")
-    // return false; 
   }
   if(validateYearOfPassing()==false)
   {
     yearOfPassingError("Year of Passing is Required")
-    // return false; 
   }
   else
   {
@@ -202,7 +161,9 @@ function clickTeamForm(){
   }
   return true  
 }
-// VALIDATION
+
+// Validation 
+
 class Validation{
   alphaRegex=/^[a-zA-Z ]+$/;
   numberRegex=/^[6789]{1}[\d]{9}$/;
@@ -339,55 +300,20 @@ function validateLastName()
   }
 }
 
-// function validateDateOfBirth()
-// {
-//   let formDOB=document.getElementById("DOB").value;
-//   validate.user.DOB=formDOB;
-//   let current = new Date();
-//   let DOB=new Date(formDOB);
-//   console.log(DOB);
-//   let today = new Date();
-// const yyyy = today.getFullYear();
-// let mm = today.getMonth() + 1; // Months start at 0!
-// let dd = today.getDate();
-
-// if (dd < 10) dd = '0' + dd;
-// if (mm < 10) mm = '0' + mm;
-// let currentDate=dd + '/' + mm + '/' + yyyy;
-// console.log(currentDate);
-// console.log(DOB);
-//   let days=Math.round((current.getTime()-DOB.getTime())/(1000*60*60*24));
-//   console.log(days);
-//   let age=days/365;
-//   console.log(age);
-// }
 function validateDateOfBirth()
 {
-  let date=document.getElementById("DOB").value;
-  let dateArray=date.split("/")
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  let mm = today.getMonth() + 1;
-  let dd = today.getDate();
-  if (dd < 10) dd = '0' + dd;
-  if (mm < 10) mm = '0' + mm;
-  let todayDate=dd+"/"+mm+"/"+yyyy
-  currentDate=todayDate.split("/")
-  age=currentDate[2]-dateArray[2]
-  if(date=="")
+  const dateIN=document.getElementById("DOB").value;
+  let dateFormat = new Date(dateIN);
+  let now = new Date();
+  let age = now.getFullYear() - dateFormat.getFullYear();
+  console.log(dateDiff);
+  if(age=="")
   {
     dateError("Date is Required")
     return false
   }
-  if(validate.dateRegex.test(date)==false)
-  {
-    dateError("Enter a valid date")
-    return false
-  }
-  else if(age<=18)
-  {
-    dateError("Age should be greater than 18")
-    return false
+  else if (!(dateDiff >= 18 && dateDiff <= 60)) {
+    dateError("age should be between 18-60")
   }
   else{
     dateCorrect()
@@ -442,16 +368,18 @@ function validateMobileNumber()
 }
 function validateGraduation()
 {
-  let formGraduation=document.getElementById("graduation")
-  if(formGraduation.options[formGraduation.selectedIndex].value=="Choose a graduation")
-  {
-    graduationError("Select a Graduation");
-    return false;
-  }
-  else{
+  let formGraduation=document.getElementById("graduation").querySelectorAll("option")[0];
+
+  console.log(formGraduation);
+  // if(formGraduation.options[formGraduation.selectedIndex].value=="Choose a graduation")
+  // {
+  //   graduationError("Select a Graduation");
+  //   return false;
+  // }
+  // else{
     graduationCorrect();
     return true;
-  }
+  // }
 }
 function validateYearOfPassing()
 {
@@ -461,11 +389,11 @@ function validateYearOfPassing()
     yearOfPassingError("Year of passing is Required")
     return false;
   }
-  if(validate.yearOfPassing.test(formPassingOut)==false)
-  {
-    yearOfPassingError("Enter the month and year in valid format")
-    return false
-  }
+  // if(validate.yearOfPassing.test(formPassingOut)==false)
+  // {
+  //   yearOfPassingError("Enter the month and year in valid format")
+  //   return false
+  // }
   else
   {
     yearOfPassingCorrect();
