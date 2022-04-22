@@ -50,8 +50,6 @@ body{
     margin: 2px;
   }
   .form-header{
-    /* background-color: violet; */
-    /* border: 1px solid black; */
     margin: 10px 0 10px;
   }
   .form-input{
@@ -72,11 +70,6 @@ body{
   .width-50{
     width:100px;
   }
-  /* .btn-active{
-    border: 1px rgb(0, 0, 0) solid;
-    background-color: white;
-    color: black;
-  } */
   .btn{
     background-color: white;
   }
@@ -86,9 +79,6 @@ body{
   .required{
     color: black;
   }
-  /* .form-group{
-    margin-bottom: 10px;
-  } */
   .disable-ancor{
     pointer-events: none;
     cursor: default;
@@ -110,9 +100,6 @@ body{
     margin:0 10px 0; 
     background-color: rgb(51, 120, 169);
     color: white;
-    /* background-color: rgba(219,70,107,255);
-    color: white; */
-    /* margin:0 10px 0; */
   }
   .color-change{
     background-color: rgba(219,70,107,255);
@@ -124,19 +111,6 @@ body{
     background-color: red;
   }
   .bar{
-    /* display: flex;
-    background-color: blue;
-    margin: 0 auto 0;
-    width: 50%; */
-    /* display: inline;
-    margin:5px auto 5px;
-    width: 50%;
-    height: 5px;
-    border-radius: 10px;
-    background-color: rgb(104, 104, 104);
-    display: flex;
-    justify-content: space-between;
-    position: relative; */
     position: relative;
     display:flex;
     justify-content: space-between;
@@ -161,18 +135,8 @@ body{
     margin: 3.5px;
   }
   .bar-step{
-    /* width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    margin: auto;
-    display: flex; */
-
-    /* display: flex;
-    display: inline;    */
     top: 2px;
     position: relative;
-    /* right: 1px; */
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -188,23 +152,10 @@ body{
     text-align: center;
     margin-top: 25%;
   }
-
-  /* .btn-group{
-    position: relative;
+  .margin-5{
+    margin:0 5% 0
   }
-  .btn-position-right{
-
-    bottom: 8px;
-    right: 16px;
+  .place-center{
+    margin: auto; 
+    width: 30%;
   }
-  .btn-position-left{
-
-    bottom: 8px;
-    left: 16px;
-  } */
-  /* .form-step{
-    height: 500px;
-  } */
-  /* input[type=text]{
-
-  } */
