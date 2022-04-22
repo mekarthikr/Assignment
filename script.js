@@ -43,12 +43,8 @@ prevBtns.forEach((btn) => {
     updateFormSteps();
   });
 });
-<<<<<<< HEAD
 
 // Change the Form View
-=======
-console.log(formSteps)
->>>>>>> 1211168134ef9c7e6df5ca73caf599051cf472a8
 
 function updateFormSteps() {
   formSteps.forEach((formStep) => {
@@ -82,7 +78,6 @@ function jumpForm(stepNumber)
       formStepsNum=stepNumber-1
       updateFormSteps()
 }
-<<<<<<< HEAD
 
 
 
@@ -90,12 +85,6 @@ function clickBasicForm(){
   if(validateEmail()==false)
   {
     emailError("Email ID Required")
-=======
-function clickBasicForm(){
-  if(validateEmail()==false)
-  {
-    emailError("Email ID Required") 
->>>>>>> 1211168134ef9c7e6df5ca73caf599051cf472a8
   }
   if(validatePassword()==false)
   {
@@ -107,11 +96,7 @@ function clickBasicForm(){
   }
   if(validateFirstName()==false)
   {
-<<<<<<< HEAD
     firstNameError("First Name is Required") 
-=======
-    firstNameError("First Name is Required")
->>>>>>> 1211168134ef9c7e6df5ca73caf599051cf472a8
   }
   else
   {
@@ -123,11 +108,7 @@ function clickBasicForm(){
 function clickOtherForm(){
   if(validateDateOfBirth()==false)
   {
-<<<<<<< HEAD
     dateError("Date of Birth is Required") 
-=======
-    dateError("Date of Birth is Required")
->>>>>>> 1211168134ef9c7e6df5ca73caf599051cf472a8
   }
   if(validateGender()==false)
   {
@@ -135,11 +116,7 @@ function clickOtherForm(){
   }
   if(validateState()==false)
   {
-<<<<<<< HEAD
     stateError("State is Required")
-=======
-    stateError("State is Required") 
->>>>>>> 1211168134ef9c7e6df5ca73caf599051cf472a8
   }
   if(validateMobileNumber()==false)
   {
@@ -209,6 +186,7 @@ let validate = new Validation();
 function validateEmail()
 {
   let formEmail=document.getElementById("email").value;
+  validate.user.email=formEmail;
   if(formEmail=="")
   {
     emailError("Email ID Required")
@@ -233,6 +211,7 @@ function validateEmail()
 function validatePassword()
 {
   let formPassword=document.getElementById("password").value;
+  validate.user.password=formPassword;
   if(formPassword=="")
   {
     passwordError("Password is Required");
@@ -257,6 +236,7 @@ function validatePasswordConfirm()
 {
   let formPassword=document.getElementById("password").value;
   let formConfirmPassword=document.getElementById("confirmPassword").value;
+  validate.user.confirmPassword=formConfirmPassword;
   if(formPassword=="")
   {
     passwordError("Password is Required")
@@ -280,6 +260,7 @@ function validatePasswordConfirm()
 function validateFirstName()
 {
   let formFirstName=document.getElementById("firstName").value;
+  validate.user.firstName=formFirstName;
   if(formFirstName=="")
   {
     firstNameError("First Name is Required")
@@ -303,6 +284,7 @@ function validateFirstName()
 function validateLastName()
 {
   let formFirstName=document.getElementById("lastName").value;
+  validate.user.firstName=formFirstName;
   if(validate.alphaRegex.test(formFirstName)==false){
     lastNameError("Enter a valid Name")
     return false;
@@ -317,10 +299,7 @@ function validateLastName()
     return true;
   }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 1211168134ef9c7e6df5ca73caf599051cf472a8
 function validateDateOfBirth()
 {
   const dateIN=document.getElementById("DOB").value;
