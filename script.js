@@ -115,6 +115,47 @@ function jumpForm(stepNumber) {
 //     updateFormSteps()
 //   }
 // }
+function removeElement(ev) {
+  var button = ev.target;
+  var field = button.previousSibling;
+  var div = button.parentElement;
+  div.removeChild(button);
+  div.removeChild(field);
+}
+
+function addExperienceFields(){
+//   var check_value = new Array()
+// check_value[0] = "I work at home"
+// check_value[1] = "Train/Subway"
+// check_value[2] = "Walk"
+// check_value[3] = "Bicycle"
+  let checkbox=document.createElement('select');
+  let selectOption=document.createElement('option');
+  selectOption.value="hand"
+  selectOption.text="hand"
+  checkbox.add(selectOption)
+  // selectOption.value="handd"
+  // selectOption.text="hadnd"
+  // checkbox.add(selectOption)
+    var input = document.createElement('input');
+    input.type = "month";
+    input.setAttribute("class", "form-input");
+    var reqs = document.getElementById("reqs");
+    var remove = document.createElement('ancor');
+    remove.onclick = function(e) {
+      removeElement(e)
+    };
+    remove.setAttribute("type", "ancor");
+    remove.setAttribute("class","btn")
+    remove.innerHTML = "Remove";
+    // append elements
+    reqs.appendChild(checkbox);
+    reqs.appendChild(input);
+    reqs.appendChild(remove);
+  
+  }
+
+
 function clickBasicForm() {
   if (validateEmail() == false) {
     emailError("Email ID Required")

@@ -179,6 +179,10 @@
                 <input type="text" name="OYE" id="experience" class="form-input">
                 <p class="error-message" id="experienceError"></p>
               </div>
+              <!-- <div id="reqs" >
+                <label for="experience">Experience</label>
+                <a class="btn" onclick="addExperienceFields()" >ADD</a>
+              </div> -->
             </div>
           </div>
           <div class="row">
@@ -190,7 +194,7 @@
           </div>
         </div>
         <!-- EDUCATION -->
-        <div class="form-step">
+        <div class="form-step form-step-active">
           <div class="row">
             <div class="col">
               <div class="form-group">
@@ -219,10 +223,14 @@
           <div class="row">
             <div class="col">
               <div class="form-group">
-                <label for="passingout">Year of Passing <span class="required" id="passingoutRequired">*</span></label>
+                <!-- <label for="passingout">Year of Passing <span class="required" id="passingoutRequired">*</span></label>
                 <input onblur="validateYearOfPassing()" type="month" name="passingout" id="passingout"
                   class="form-input">
-                <p class="error-message" id="passingoutError"></p>
+                <p class="error-message" id="passingoutError"></p> -->
+                <div id="reqs" >
+                  <!-- <label for="experience">Experience</label> -->
+                  <a class="btn" onclick="addExperienceFields()" >ADD</a>
+                </div>
               </div>
             </div>
           </div>

@@ -1,24 +1,39 @@
-<!DOCTYPE html>
-<html>
-<body>
+<div id="reqs">
+  <h3 align="center"> Requirements </h3>
+</div>
+<script>
+  var reqs_id = 0;
 
-<h1>The select multiple attribute</h1>
+  function removeElement(ev) {
+    var button = ev.target;
+    var field = button.previousSibling;
+    var div = button.parentElement;
+    div.removeChild(button);
+    div.removeChild(field);
+  }
 
-<p>The multiple attribute specifies that multiple options can be selected at once:</p>
+  function add() {
+    // reqs_id++; // increment reqs_id to get a unique ID for the new element
 
-<form action="/action_page.php">
-  <label for="cars">Choose a car:</label>
-  <select name="cars" id="cars" multiple>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-  </select>
-  <br><br>
-  <input type="submit" value="Submit">
-</form>
+    //create textbox
+    var input = document.createElement('input');
+    input.type = "text";
+    // input.setAttribute("class", "w3-input w3-border");
+    // input.setAttribute('id', 'reqs' + reqs_id);
+    // input.setAttribute('value', reqs_id);
+    // var reqs = document.getElementById("reqs");
+    //create remove button
+    var remove = document.createElement('button');
+    // remove.setAttribute('id', 'reqsr' + reqs_id);
+    remove.onclick = function(e) {
+      removeElement(e)
+    };
+    remove.setAttribute("type", "button");
+    // remove.innerHTML = "Remove" + reqs_id;
+    //append elements
+    reqs.appendChild(input);
+    reqs.appendChild(remove);
+  }
 
-<p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
-
-</body>
-</html>
+</script>
+<button type="button" value="Add" onclick="javascript:add();"> Add</button>
