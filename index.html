@@ -161,13 +161,27 @@
           </div>
         </div>
         <!-- WORK -->
-        <div class="form-step">
+        <div class="form-step form-step-active">
           <div class="row">
-            <div class="col">
+            <!-- <div class="col">
               <div class="form-group">
                 <label for="occupation">Occupation</label>
                 <input type="text" name="Occupation" id="occupation" class="form-input">
                 <p class="error-message" id="occupationError"></p>
+              </div>
+            </div> -->
+            <div class="col">
+              <div class="form-group">
+                <label for="occupation">Occupation </label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="Occupation" id="Intern">
+                  <label class="form-check-label" for="Intern">Intern</label>
+                  <input class="form-check-input" type="radio" name="Occupation" id="Developer">
+                  <label class="form-check-label" for="Developer">Developer</label>
+                  <input class="form-check-input" type="radio" name="Occupation" id="Analyst">
+                  <label class="form-check-label" for="Analyst">Analyst</label>
+                </div>
+                <p class="error-message" id="genderError"></p>
               </div>
             </div>
           </div>
@@ -218,21 +232,22 @@
                 <p class="error-message" id="graduationError"></p>
               </div>
             </div>
-          </div>
-          <div class="row">
             <div class="col">
               <div class="form-group">
                 <!-- <label for="passingout">Year of Passing <span class="required" id="passingoutRequired">*</span></label>
                 <input onblur="validateYearOfPassing()" type="month" name="passingout" id="passingout"
                   class="form-input">
                 <p class="error-message" id="passingoutError"></p> -->
-                <div id="reqs" >
+                <div id="reqs" style="display: block;" >
                   <!-- <label for="experience">Experience</label> -->
-                  <a class="btn" onclick="addExperienceFields()" >ADD</a>
+                  <a class="btn" onclick="addExperienceFields()" >Add year of Graduation</a>
                 </div>
               </div>
             </div>
           </div>
+          <!-- <div class="row">
+
+          </div> -->
           <div class="row">
             <div class="col">
               <a class="btn btn-left btn-prev disable-ancor width-50 ml-auto">Previous</a>

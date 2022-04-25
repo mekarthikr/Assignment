@@ -162,3 +162,6 @@ body{
   /* button{
     display: block;
   } */
+  .dis-block{
+    display: block;
+  }

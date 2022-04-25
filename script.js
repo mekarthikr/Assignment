@@ -118,28 +118,41 @@ function jumpForm(stepNumber) {
 function removeElement(ev) {
   var button = ev.target;
   var field = button.previousSibling;
+  let check=field.previousSibling;
   var div = button.parentElement;
   div.removeChild(button);
   div.removeChild(field);
+  div.removeChild(check);
 }
 
 function addExperienceFields(){
-//   var check_value = new Array()
-// check_value[0] = "I work at home"
-// check_value[1] = "Train/Subway"
-// check_value[2] = "Walk"
-// check_value[3] = "Bicycle"
+  var check_value = new Array()
+check_value[0] = "SSLC"
+check_value[1] = "HSC"
+check_value[2] = "BE"
+check_value[3] = "ME"
   let checkbox=document.createElement('select');
-  let selectOption=document.createElement('option');
-  selectOption.value="hand"
-  selectOption.text="hand"
-  checkbox.add(selectOption)
+  checkbox.setAttribute("class", "dis-block");
+ 
+  // selectOption.value="hand"
+  // selectOption.text="hand"
+  // checkbox.add(selectOption)
   // selectOption.value="handd"
   // selectOption.text="hadnd"
   // checkbox.add(selectOption)
+  // for (var i = min; i<=max; i++){
+    // var opt = document.createElement('option');
+    check_value.forEach((index,value)=>{
+      let selectOption=document.createElement('option');
+      selectOption.value = check_value[value];
+      selectOption.innerHTML = check_value[value];
+      checkbox.appendChild(selectOption);
+    })
+
+// }
     var input = document.createElement('input');
     input.type = "month";
-    input.setAttribute("class", "form-input");
+    input.setAttribute("class", "form-input dis-block");
     var reqs = document.getElementById("reqs");
     var remove = document.createElement('ancor');
     remove.onclick = function(e) {
